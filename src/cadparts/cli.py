@@ -11,7 +11,7 @@ from typing import Any
 from build123d import export_step, export_stl
 
 from . import __version__
-from .catalog import create, derive, describe, list_families
+from .catalog import create, derive, describe, instance_spec, list_families
 from .errors import CadPartsError
 
 
@@ -34,6 +34,10 @@ def build_parser() -> argparse.ArgumentParser:
     derive_command = subcommands.add_parser("derive", help="calculate dimensions without building geometry")
     derive_command.add_argument("family")
     derive_command.add_argument("--params", required=True, help="JSON object of family parameters")
+
+    spec_command = subcommands.add_parser("spec", help="emit a reproducible canonical instance spec")
+    spec_command.add_argument("family")
+    spec_command.add_argument("--params", required=True, help="JSON object of family parameters")
 
     build_command = subcommands.add_parser("build", help="create and export one part")
     build_command.add_argument("family")
@@ -64,6 +68,9 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "derive":
             print(_json(derive(args.family, **parameters)))
             return 0
+        if args.command == "spec":
+            print(_json(instance_spec(args.family, **parameters)))
+            return 0
 
         shape = create(args.family, **parameters)
         args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -71,8 +78,12 @@ def main(argv: list[str] | None = None) -> int:
             export_step(shape, args.output)
         else:
             export_stl(shape, args.output)
+        spec = instance_spec(args.family, **parameters)
         print(_json({
-            "family": args.family,
+            "family": spec["family"],
+            "library_version": __version__,
+            "parameters": parameters,
+            "derived": spec.get("derived"),
             "output": str(args.output.resolve()),
             "format": args.format,
             "label": shape.label,

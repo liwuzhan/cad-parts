@@ -7,6 +7,7 @@ from typing import Any
 
 from .errors import InvalidParameterError, UnknownFamilyError
 from .models import FamilyDefinition
+from ._version import __version__
 
 
 _FAMILIES: dict[str, FamilyDefinition] = {}
@@ -70,6 +71,35 @@ def derive(family: str, /, **parameters: Any) -> dict[str, Any]:
     except TypeError as exc:
         raise InvalidParameterError(f"{family}: {exc}") from exc
     return dict(definition.derive(**parameters))
+
+
+def instance_spec(family: str, /, **parameters: Any) -> dict[str, Any]:
+    """Create a canonical, JSON-serializable and geometry-free instance spec."""
+
+    definition = get_family(family)
+    try:
+        inspect.signature(definition.factory).bind(**parameters)
+    except TypeError as exc:
+        raise InvalidParameterError(f"{family}: {exc}") from exc
+    result: dict[str, Any] = {
+        "schema": "cadparts.instance/v1",
+        "library": "cad-parts",
+        "library_version": __version__,
+        "family": definition.key,
+        "parameters": dict(parameters),
+        "standards": [
+            {
+                "system": reference.system,
+                "designation": reference.designation,
+                "edition": reference.edition,
+                "relationship": reference.relationship,
+            }
+            for reference in definition.standards
+        ],
+    }
+    if definition.derive is not None:
+        result["derived"] = derive(definition.key, **parameters)
+    return result
 
 
 def create(family: str, /, **parameters: Any) -> Any:

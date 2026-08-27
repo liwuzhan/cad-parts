@@ -1,6 +1,7 @@
 """Language-model-friendly parametric standard parts for build123d."""
 
-from .catalog import create, derive, describe, get_family, list_families
+from ._version import __version__
+from .catalog import create, derive, describe, get_family, instance_spec, list_families
 from .bearings import deep_groove_bearing, deep_groove_dimensions
 from .fasteners import (
     hex_bolt_metric,
@@ -45,6 +46,7 @@ __all__ = [
     "hex_bolt_metric_dimensions",
     "hex_nut_metric",
     "hex_nut_metric_dimensions",
+    "instance_spec",
     "list_families",
     "parallel_key",
     "parallel_key_dimensions",
@@ -61,5 +63,3 @@ __all__ = [
     "straight_bevel_gear",
     "straight_bevel_gear_dimensions",
 ]
-
-__version__ = "0.1.0"

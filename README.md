@@ -80,6 +80,8 @@ cadparts list --category gear
 cadparts describe gear.spur
 cadparts derive gear.spur \
   --params '{"module":2,"teeth":24,"bore":10,"width":12}'
+cadparts spec gear.spur \
+  --params '{"module":2,"teeth":24,"bore":10,"width":12}'
 cadparts build gear.spur \
   --params '{"module":2,"teeth":24,"bore":10,"width":12}' \
   --output gear.step
@@ -88,8 +90,11 @@ cadparts build gear.spur \
 推荐固定路由为：
 
 ```text
-list → describe → derive → build → 装配/验证
+list → describe → derive → spec → build → 装配/验证
 ```
+
+`spec` 不创建几何，返回 `cadparts.instance/v1` JSON：规范 family、库版本、输入参数、
+派生尺寸和标准版本都固定在同一对象中，可直接写入装配 manifest 的 `std:` 依赖。
 
 ## 精度边界
 
