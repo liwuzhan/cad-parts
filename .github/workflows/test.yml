@@ -1,0 +1,51 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev,review]'
+      - run: cadparts build-index
+      - run: git diff --exit-code -- src/cadparts/data/catalog/index.json
+      - run: cadparts validate-catalog --build-samples
+      - run: pytest -q
+
+  package-and-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip build
+      - run: python -m pip install -e '.[dev,review]'
+      - run: python -m build
+      - run: cadparts review-catalog --views iso,front,right,top --output-dir build/review
+      - uses: actions/upload-artifact@v4
+        with:
+          name: multimodal-review
+          path: build/review
+      - run: |
+          python -m venv build/wheel-test
+          build/wheel-test/bin/pip install dist/*.whl
+          build/wheel-test/bin/cadparts validate-catalog
+          build/wheel-test/bin/cadparts search "20mm bearing" --constraints '{"bore":20}'

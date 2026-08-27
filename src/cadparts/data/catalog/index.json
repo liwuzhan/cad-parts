@@ -1,0 +1,1443 @@
+{
+  "categories": {
+    "bearing": 1,
+    "fastener": 3,
+    "gear": 2,
+    "key": 1,
+    "profile": 4
+  },
+  "entries": [
+    {
+      "aliases": [
+        "deep_groove_bearing",
+        "深沟球轴承",
+        "轴承"
+      ],
+      "category": "bearing",
+      "family": "bearing.deep_groove",
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "family",
+      "name": "Deep-groove ball bearing / 深沟球轴承",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "standard boundary-dimension designation"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6200"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 10,
+        "outside_diameter": 30,
+        "width": 9
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6200"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6200",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6200 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6200"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6201"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 12,
+        "outside_diameter": 32,
+        "width": 10
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6201"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6201",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6201 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6201"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6202"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 15,
+        "outside_diameter": 35,
+        "width": 11
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6202"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6202",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6202 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6202"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6203"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 17,
+        "outside_diameter": 40,
+        "width": 12
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6203"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6203",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6203 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6203"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6204",
+        "6204-ZZ",
+        "6204-2RS"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 20,
+        "outside_diameter": 47,
+        "width": 14
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6204"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6204",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径",
+        "20mm内径"
+      ],
+      "kind": "item",
+      "name": "6204 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6204"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6205"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 25,
+        "outside_diameter": 52,
+        "width": 15
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6205"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6205",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6205 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6205"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6206"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 30,
+        "outside_diameter": 62,
+        "width": 16
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6206"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6206",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6206 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6206"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6207"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 35,
+        "outside_diameter": 72,
+        "width": 17
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6207"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6207",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6207 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6207"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6208"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 40,
+        "outside_diameter": 80,
+        "width": 18
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6208"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6208",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6208 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6208"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6209"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 45,
+        "outside_diameter": 85,
+        "width": 19
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6209"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6209",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6209 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6209"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6210"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 50,
+        "outside_diameter": 90,
+        "width": 20
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6210"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6210",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6210 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6210"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6300"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 10,
+        "outside_diameter": 35,
+        "width": 11
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6300"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6300",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6300 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6300"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6301"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 12,
+        "outside_diameter": 37,
+        "width": 12
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6301"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6301",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6301 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6301"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6302"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 15,
+        "outside_diameter": 42,
+        "width": 13
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6302"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6302",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6302 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6302"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6303"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 17,
+        "outside_diameter": 47,
+        "width": 14
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6303"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6303",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6303 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6303"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6304"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 20,
+        "outside_diameter": 52,
+        "width": 15
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6304"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6304",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6304 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6304"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6305"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 25,
+        "outside_diameter": 62,
+        "width": 17
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6305"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6305",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6305 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6305"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6306"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 30,
+        "outside_diameter": 72,
+        "width": 19
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6306"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6306",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6306 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6306"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6307"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 35,
+        "outside_diameter": 80,
+        "width": 21
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6307"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6307",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6307 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6307"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6308"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 40,
+        "outside_diameter": 90,
+        "width": 23
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6308"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6308",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6308 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6308"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6309"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 45,
+        "outside_diameter": 100,
+        "width": 25
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6309"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6309",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6309 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6309"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "6310"
+      ],
+      "category": "bearing",
+      "dimensions_mm": {
+        "bore": 50,
+        "outside_diameter": 110,
+        "width": 27
+      },
+      "family": "bearing.deep_groove",
+      "generator": {
+        "params": {
+          "code": "6310"
+        }
+      },
+      "geometry_fidelity": "exact nominal d/D/B envelope; optional recognizable heuristic internals",
+      "id": "bearing.deep_groove.6310",
+      "keywords": [
+        "bearing",
+        "轴承",
+        "滚珠轴承",
+        "密封",
+        "防尘",
+        "ZZ",
+        "2RS",
+        "内径",
+        "外径"
+      ],
+      "kind": "item",
+      "name": "6310 deep-groove bearing",
+      "path": "src/cadparts/data/catalog/bearing/bearing_deep_groove.json",
+      "selectors": {
+        "clearance": [
+          "normal",
+          "C3",
+          "C4"
+        ],
+        "closure": [
+          "open",
+          "Z",
+          "ZZ",
+          "RS",
+          "2RS"
+        ],
+        "code": "6310"
+      },
+      "summary": "Designation-driven radial bearing proxy with exact nominal bore, outside diameter and width."
+    },
+    {
+      "aliases": [
+        "hex_bolt",
+        "metric_hex_bolt",
+        "六角螺栓",
+        "外六角螺栓"
+      ],
+      "category": "fastener",
+      "family": "fastener.hex_bolt_metric",
+      "geometry_fidelity": "nominal assembly envelope",
+      "id": "fastener.hex_bolt_metric",
+      "keywords": [
+        "bolt",
+        "screw",
+        "螺栓",
+        "螺钉",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M8",
+        "M10",
+        "M12"
+      ],
+      "kind": "family",
+      "name": "Metric hex-head screw / 公制六角头螺栓",
+      "path": "src/cadparts/data/catalog/fastener/fastener_hex_bolt_metric.json",
+      "selectors": {
+        "length": "nominal length below head in mm",
+        "size": "metric thread designation"
+      },
+      "summary": "Purchasable metric hex-head fastener represented by its head and nominal thread envelope."
+    },
+    {
+      "aliases": [
+        "hex_nut",
+        "metric_hex_nut",
+        "六角螺母"
+      ],
+      "category": "fastener",
+      "family": "fastener.hex_nut_metric",
+      "geometry_fidelity": "nominal assembly envelope",
+      "id": "fastener.hex_nut_metric",
+      "keywords": [
+        "nut",
+        "螺母",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M8",
+        "M10",
+        "M12"
+      ],
+      "kind": "family",
+      "name": "Metric regular hex nut / 公制六角螺母",
+      "path": "src/cadparts/data/catalog/fastener/fastener_hex_nut_metric.json",
+      "selectors": {
+        "size": "metric thread designation"
+      },
+      "summary": "Regular metric hex-nut proxy with nominal thread bore and bearing faces."
+    },
+    {
+      "aliases": [
+        "plain_washer",
+        "metric_washer",
+        "平垫圈",
+        "垫片"
+      ],
+      "category": "fastener",
+      "family": "fastener.plain_washer_metric",
+      "geometry_fidelity": "exact nominal d1/d2/s envelope",
+      "id": "fastener.plain_washer_metric",
+      "keywords": [
+        "washer",
+        "垫圈",
+        "平垫",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M8",
+        "M10",
+        "M12"
+      ],
+      "kind": "family",
+      "name": "Metric normal-series plain washer / 公制平垫圈",
+      "path": "src/cadparts/data/catalog/fastener/fastener_plain_washer_metric.json",
+      "selectors": {
+        "size": "metric thread designation"
+      },
+      "summary": "Plain washer proxy defined by nominal inside diameter, outside diameter and thickness."
+    },
+    {
+      "aliases": [
+        "straight_bevel_gear",
+        "bevel_gear",
+        "伞齿轮",
+        "锥齿轮"
+      ],
+      "category": "gear",
+      "family": "gear.bevel_straight",
+      "geometry_fidelity": "assembly/layout loft; not a production tooth flank",
+      "id": "gear.bevel_straight",
+      "keywords": [
+        "bevel gear",
+        "伞齿轮",
+        "锥齿轮",
+        "模数",
+        "齿数",
+        "轴交角"
+      ],
+      "kind": "family",
+      "name": "Straight bevel gear layout / 直齿伞齿轮布局件",
+      "path": "src/cadparts/data/catalog/gear/gear_bevel_straight.json",
+      "selectors": {
+        "mate_teeth": "mating member tooth count",
+        "module": "outer module in mm",
+        "shaft_angle": "included shaft angle in degrees",
+        "teeth": "this member tooth count"
+      },
+      "summary": "Pitch-cone and outside-envelope model for bevel-gear selection and right-angle assembly layout."
+    },
+    {
+      "aliases": [
+        "spur_gear",
+        "gear.spur_gear",
+        "直齿轮",
+        "圆柱齿轮"
+      ],
+      "category": "gear",
+      "family": "gear.spur",
+      "geometry_fidelity": "real sampled involute working flanks with simplified root transition",
+      "id": "gear.spur",
+      "keywords": [
+        "gear",
+        "齿轮",
+        "直齿",
+        "模数",
+        "齿数",
+        "中心孔",
+        "压力角"
+      ],
+      "kind": "family",
+      "name": "External spur gear / 外啮合直齿轮",
+      "path": "src/cadparts/data/catalog/gear/gear_spur.json",
+      "selectors": {
+        "bore": "center bore diameter in mm",
+        "module": "metric module in mm",
+        "teeth": "tooth count",
+        "width": "face width in mm"
+      },
+      "summary": "Parametric involute spur-gear proxy for shaft layout, pitch geometry and assembly interference."
+    },
+    {
+      "aliases": [
+        "parallel_key",
+        "平键",
+        "普通平键"
+      ],
+      "category": "key",
+      "family": "key.parallel",
+      "geometry_fidelity": "nominal solid key envelope",
+      "id": "key.parallel",
+      "keywords": [
+        "key",
+        "平键",
+        "键槽",
+        "轴连接",
+        "A型",
+        "B型",
+        "C型"
+      ],
+      "kind": "family",
+      "name": "Ordinary parallel key / 普通型平键",
+      "path": "src/cadparts/data/catalog/key/key_parallel.json",
+      "selectors": {
+        "end_type": [
+          "A",
+          "B",
+          "C"
+        ],
+        "height": "h in mm",
+        "length": "L in mm",
+        "width": "b in mm"
+      },
+      "summary": "Nominal b×h×L shaft key proxy with selectable end form."
+    },
+    {
+      "aliases": [
+        "equal_angle",
+        "angle_steel",
+        "角钢",
+        "等边角钢"
+      ],
+      "category": "profile",
+      "family": "profile.equal_angle",
+      "geometry_fidelity": "sharp-corner nominal L-section envelope",
+      "id": "profile.equal_angle",
+      "keywords": [
+        "profile",
+        "型材",
+        "角钢",
+        "等边角钢",
+        "L型钢",
+        "壁厚",
+        "长度"
+      ],
+      "kind": "family",
+      "name": "Equal-leg angle / 等边角钢",
+      "path": "src/cadparts/data/catalog/profile/profile_equal_angle.json",
+      "selectors": {
+        "leg": "equal leg length in mm",
+        "length": "cut length in mm",
+        "thickness": "nominal thickness in mm"
+      },
+      "summary": "Configurable equal-angle stock proxy for structural layout, cutting and BOMs."
+    },
+    {
+      "aliases": [
+        "round_rod",
+        "rod",
+        "圆棒",
+        "圆钢"
+      ],
+      "category": "profile",
+      "family": "profile.round_rod",
+      "geometry_fidelity": "nominal cylindrical stock envelope",
+      "id": "profile.round_rod",
+      "keywords": [
+        "profile",
+        "型材",
+        "圆棒",
+        "圆钢",
+        "实心轴",
+        "直径",
+        "长度"
+      ],
+      "kind": "family",
+      "name": "Solid round bar / 圆棒",
+      "path": "src/cadparts/data/catalog/profile/profile_round_rod.json",
+      "selectors": {
+        "diameter": "nominal diameter in mm",
+        "length": "cut length in mm"
+      },
+      "summary": "Generic solid round-stock envelope with explicit diameter and cut length."
+    },
+    {
+      "aliases": [
+        "round_tube",
+        "chs",
+        "圆管",
+        "钢管"
+      ],
+      "category": "profile",
+      "family": "profile.round_tube",
+      "geometry_fidelity": "nominal cylindrical stock envelope",
+      "id": "profile.round_tube",
+      "keywords": [
+        "profile",
+        "型材",
+        "圆管",
+        "钢管",
+        "外径",
+        "内径",
+        "壁厚",
+        "长度"
+      ],
+      "kind": "family",
+      "name": "Circular hollow section / 圆管",
+      "path": "src/cadparts/data/catalog/profile/profile_round_tube.json",
+      "selectors": {
+        "length": "cut length in mm",
+        "outer_diameter": "OD in mm",
+        "wall": "wall thickness in mm"
+      },
+      "summary": "Configurable circular-tube stock envelope for frames, shafts, spacers and BOMs."
+    },
+    {
+      "aliases": [
+        "square_tube",
+        "shs",
+        "方管",
+        "方形钢管"
+      ],
+      "category": "profile",
+      "family": "profile.square_tube",
+      "geometry_fidelity": "nominal stock envelope; sharp corners by default",
+      "id": "profile.square_tube",
+      "keywords": [
+        "profile",
+        "型材",
+        "方管",
+        "钢管",
+        "矩形管",
+        "壁厚",
+        "长度"
+      ],
+      "kind": "family",
+      "name": "Square hollow section / 方管",
+      "path": "src/cadparts/data/catalog/profile/profile_square_tube.json",
+      "selectors": {
+        "length": "cut length in mm",
+        "side": "outside side in mm",
+        "wall": "wall thickness in mm"
+      },
+      "summary": "Configurable square-tube stock envelope for frames, cutting layouts and BOMs."
+    }
+  ],
+  "entrypoint": "CATALOG.md",
+  "schema": "cadparts.catalog-index/v1"
+}

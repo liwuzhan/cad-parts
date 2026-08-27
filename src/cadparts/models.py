@@ -116,3 +116,24 @@ class FamilyDefinition:
             "parameters": [item.name for item in self.parameters],
             "validation": self.validation,
         }
+
+
+@dataclass(slots=True)
+class PartInstance:
+    """A generated proxy shape together with its model-readable contract.
+
+    ``shape`` intentionally remains an opaque build123d object.  Everything a
+    model needs for selection, placement and a BOM lives in ``spec`` so an
+    agent never has to reverse-engineer connection points from the B-rep.
+    """
+
+    shape: Any = field(repr=False)
+    spec: dict[str, Any]
+
+    @property
+    def catalog_id(self) -> str:
+        return str(self.spec["catalog_id"])
+
+    @property
+    def interfaces(self) -> list[dict[str, Any]]:
+        return list(self.spec.get("interfaces", []))

@@ -1,0 +1,27 @@
+{
+  "schema": "cadparts.catalog-family/v1",
+  "id": "gear.bevel_straight",
+  "category": "gear",
+  "name": "Straight bevel gear layout / 直齿伞齿轮布局件",
+  "summary": "Pitch-cone and outside-envelope model for bevel-gear selection and right-angle assembly layout.",
+  "aliases": ["straight_bevel_gear", "bevel_gear", "伞齿轮", "锥齿轮"],
+  "keywords": ["bevel gear", "伞齿轮", "锥齿轮", "模数", "齿数", "轴交角"],
+  "selectors": {
+    "module": "outer module in mm",
+    "teeth": "this member tooth count",
+    "mate_teeth": "mating member tooth count",
+    "shaft_angle": "included shaft angle in degrees"
+  },
+  "geometry": {
+    "fidelity": "assembly/layout loft; not a production tooth flank",
+    "accurate": ["bore", "pitch_cone_angle", "face_width", "outside_envelope", "axis"],
+    "omitted": ["spherical involute flank", "bearing pattern", "backlash", "crowning", "cutting data", "strength"]
+  },
+  "interfaces": [
+    {"id": "shaft_bore", "type": "cylindrical_bore", "role": "mount on shaft"},
+    {"id": "rotation_axis", "type": "axis", "role": "assembly rotation axis"},
+    {"id": "pitch_cone_reference", "type": "pitch_cone", "role": "mating layout"}
+  ],
+  "purchase": {"designation_template": "straight bevel gear m{module} z{teeth}/{mate_teeth}"},
+  "sample": {"params": {"module": 2, "teeth": 20, "mate_teeth": 40, "bore": 10, "face_width": 10}}
+}

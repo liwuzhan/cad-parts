@@ -1,21 +1,27 @@
-# Standards source policy
+# Dimensional source policy
 
-`cad-parts` stores formulas, nominal dimensions and traceable source metadata;
-it does not redistribute standards documents. A generated ideal solid is not a
-claim that a manufactured part complies with dimensional tolerances, material,
-process, grade, strength, marking or inspection requirements.
+`cad-parts` stores the nominal dimensions and interface metadata needed for an
+assembly proxy. Sources may be a standard, a manufacturer drawing, a product
+datasheet or an explicitly identified common commercial series. The repository
+does not redistribute standards documents or proprietary vendor CAD files.
+
+A generated solid is not a claim that a manufactured part complies with
+dimensional tolerances, material, process, grade, strength, marking or
+inspection requirements.
 
 ## Source hierarchy
 
-1. Official issuing-body catalog or full-text service.
+1. Official issuing-body catalog or full-text service for standardized series.
 2. Current ISO standard when a GB/T document is an adoption or equivalent.
 3. Official standards-body scope page for paid ASME/AGMA/ASTM publications.
-4. Manufacturer catalogs only as a cross-check, never as the sole definition
-   of a standards family.
+4. Manufacturer dimension drawing or datasheet for a manufacturer/series item.
+5. A documented common commercial-series reference when no governing standard
+   exists; the proxy must then say that the dimensions are series-specific.
 
-Every table or formula added to the code must record the standard designation,
-edition, status checked date and whether the relationship is governing,
-equivalent, similar or nominal-envelope only.
+Every table or formula must record the source, checked date and whether the
+relationship is governing, equivalent, series-specific, similar or
+nominal-envelope only. Two visually similar vendor products must not be merged
+unless their assembly-critical interfaces were verified identical.
 
 ## Baseline references checked 2026-08-27
 

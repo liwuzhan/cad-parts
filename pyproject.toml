@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,17 +8,26 @@ dynamic = ["version"]
 description = "Parametric standard parts library on build123d, built for AI assembly workflows"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"
 dependencies = ["build123d>=0.10.0,<0.12"]
 
+[project.urls]
+Homepage = "https://github.com/liwuzhan/cad-parts"
+Repository = "https://github.com/liwuzhan/cad-parts"
+Issues = "https://github.com/liwuzhan/cad-parts/issues"
+
 [project.optional-dependencies]
-dev = ["pytest>=7.4.0"]
+dev = ["pytest>=7.4.0", "matplotlib>=3.8"]
+review = ["matplotlib>=3.8"]
 
 [project.scripts]
 cadparts = "cadparts.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"cadparts.data" = ["catalog/index.json", "catalog/*/*.json"]
 
 [tool.setuptools.dynamic]
 version = { attr = "cadparts._version.__version__" }
