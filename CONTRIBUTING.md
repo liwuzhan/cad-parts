@@ -16,6 +16,8 @@ Every new family must include:
 6. Tests for parameter validation, envelope, interfaces and STEP export.
 7. A traceable dimensional source: an issuing-body page, manufacturer drawing,
    product datasheet, or clearly identified common-series reference.
+8. An explicit compatibility level and the interface fields that must match.
+9. Advisory keepout volumes for motion, swivel, airflow, cabling or service access when relevant.
 
 Internal mechanisms, cosmetic detail, tolerance, material and strength analysis may be omitted when the declaration says so.
 
@@ -27,6 +29,8 @@ Internal mechanisms, cosmetic detail, tolerance, material and strength analysis 
 - Product options that share an envelope, such as bearing closure or clearance,
   should normally be `selection` fields rather than duplicate geometry.
 - A missing dimension must remain missing. Never fill it with an unverified model guess.
+- Keepouts are review evidence, not automatic pass/fail rules. Do not use them to replace model or human judgment.
+- The rendered solid, named interfaces and declaration must tell the same story; a declared hole or shaft must be visible in the representative review unless explicitly abstract.
 
 ## Local review
 

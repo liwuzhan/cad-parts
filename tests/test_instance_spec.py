@@ -5,7 +5,7 @@ def test_instance_spec_resolves_alias_and_pins_library_and_standards():
     spec = instance_spec("hex_bolt", size="M8", length=30)
     assert spec["schema"] == "cadparts.instance/v2"
     assert spec["library"] == "cad-parts"
-    assert spec["library_version"] == "0.1.0"
+    assert spec["library_version"] == "0.2.0"
     assert spec["family"] == "fastener.hex_bolt_metric"
     assert spec["catalog_id"] == "fastener.hex_bolt_metric"
     assert spec["parameters"] == {"size": "M8", "length": 30}

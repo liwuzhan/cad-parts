@@ -28,21 +28,19 @@ search → compare → describe → instantiate → 装配/BOM
 
 ## 当前内容
 
-当前版本有 11 个 family 和 22 个具体轴承型号：
+当前索引有 **34 个 family、288 个可直接调用的型号/规格条目，共 322 个发现条目**：
 
-| family | 主要装配语义 |
+| 类别 | 已实现内容 |
 |---|---|
-| `bearing.deep_groove` | 62/63 系列 d/D/B、轴孔、外圈座和轴向端面 |
-| `fastener.hex_bolt_metric` | 名义螺纹轴、头部包络和夹紧面 |
-| `fastener.hex_nut_metric` | 名义螺纹孔和两侧夹紧面 |
-| `fastener.plain_washer_metric` | 内径、外径、厚度和两侧承压面 |
-| `gear.spur` | 轴孔、旋转轴和分度圆参考 |
-| `gear.bevel_straight` | 轴孔、旋转轴和节锥布局参考 |
-| `key.parallel` | b×h×L 键连接占位 |
-| `profile.square_tube` | 方管外形、内腔和切割端面 |
-| `profile.round_tube` | 圆管外径、内径和切割端面 |
-| `profile.round_rod` | 圆棒直径、轴线和切割端面 |
-| `profile.equal_angle` | 等边角钢包络和切割端面 |
+| 轴承与连接 | 深沟球轴承、UCP/UCF/UCFL 带座轴承、柔性联轴器、平键 |
+| 电机与减速机 | 方形步进、方形伺服、IEC 电机、NMRV/BKM 直角减速机、直线行星减速机 |
+| 直线运动 | MGN/MGW/HGR/HGW 导轨、SFU 丝杠、BK/BF/EK/EF/FK/FF 支撑座、SBR/TBR 圆导轨、LM/LME/LMF/LMK 直线轴承 |
+| 传动 | GT2/HTD 同步带轮、06B–12B 链轮、锥套、直齿轮、直齿伞齿轮 |
+| 气动与执行 | ISO 6432、ISO 15552、ISO 21287/SDA 气缸，杆式/滑台式电动执行器 |
+| 设备附件 | M8–M30 接近传感器、40–140 mm 轴流风扇、调平脚、工业脚轮 |
+| 基础件 | 公制螺栓/螺母/垫圈、方管/圆管/圆棒/角钢 |
+
+完整 family 地图和模型读取规则见 [CATALOG.md](./CATALOG.md)。
 
 标准和尺寸来源见 [docs/STANDARDS.md](./docs/STANDARDS.md)，设计与扩展路线见
 [DESIGN.md](./DESIGN.md)。
@@ -61,6 +59,9 @@ python -m venv .venv
 ```bash
 cadparts search "防水防尘 20mm内径轴承"
 cadparts search "轴承" --constraints '{"bore":20,"outside_diameter":{"max":50}}'
+cadparts search "RV63 减速机"
+cadparts search "120mm 散热风扇"
+cadparts search "ISO15552 63缸径气缸"
 cadparts compare 6204 6304
 cadparts describe 6204
 cadparts instantiate 6204 \
@@ -99,11 +100,16 @@ order_code = bearing.spec["purchase"]["order_code"]
 - 几何参数与采购 `selection`；
 - 派生尺寸和实际 B-rep 包络；
 - 带原点、轴向和直径的命名接口；
+- 明示的兼容性等级与需要逐项核对的接口字段；
+- 运动扫掠、接线、进排气或工具操作所需的建议安全体积；
 - 采购型号/查询文本；
 - 当前几何精度与用途声明。
 
 例如 6204 会暴露 `shaft_bore`、`housing_seat`、`axial_face_min`、
 `axial_face_max`。装配模型应直接使用这些接口，而不是观察 STEP 后重新猜测。
+
+`keepouts` 是给模型看的规划证据，不是自动报警器。模型可以根据具体装配、图片和必要的
+临时代码决定是否采用或调整；库不会用粗糙规则替代模型对最终装配质量的判断。
 
 ## 多模态审查
 

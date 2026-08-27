@@ -160,6 +160,7 @@ def search(
     constraints = constraints or {}
     normalized_query = query.strip().casefold()
     terms = [item for item in re.split(r"[\s,，;；/]+", normalized_query) if item]
+    compact_query = "".join(terms)
     scored: list[tuple[int, dict[str, Any]]] = []
     for entry in load_catalog_index()["entries"]:
         if category is not None and entry["category"].casefold() != category.casefold():
@@ -169,8 +170,13 @@ def search(
 
         score = 1 if not normalized_query else 0
         identifiers = [entry["id"], *entry.get("aliases", [])]
-        if normalized_query and any(normalized_query == str(item).casefold() for item in identifiers):
+        normalized_identifiers = {str(item).casefold() for item in identifiers}
+        if normalized_query and normalized_query in normalized_identifiers:
             score += 200
+        elif compact_query and compact_query in {
+            re.sub(r"[\s,，;；/]+", "", item) for item in normalized_identifiers
+        }:
+            score += 160
         haystack = _text(entry).casefold()
         if normalized_query and normalized_query in haystack:
             score += 80
@@ -178,7 +184,9 @@ def search(
             if str(keyword).casefold() in normalized_query:
                 score += 30
         for term in terms:
-            if term in haystack:
+            if term in normalized_identifiers:
+                score += 60
+            elif term in haystack:
                 score += 10
         if normalized_query and score == 0:
             continue
@@ -186,7 +194,7 @@ def search(
             key: deepcopy(entry[key])
             for key in (
                 "id", "family", "kind", "category", "name", "summary",
-                "dimensions_mm", "selectors", "geometry_fidelity", "path",
+                "dimensions_mm", "selectors", "geometry_fidelity", "compatibility", "path",
             )
             if key in entry
         }
@@ -209,7 +217,7 @@ def compare(*identifiers: str) -> dict[str, Any]:
                 key: deepcopy(entry.get(key))
                 for key in (
                     "id", "family", "name", "summary", "dimensions_mm",
-                    "selectors", "geometry_fidelity", "path",
+                    "selectors", "geometry_fidelity", "compatibility", "path",
                 )
                 if key in entry
             }
@@ -302,6 +310,10 @@ def instance_spec(
         "selection": selected,
         "intent": "assembly proxy, interface layout, BOM and purchase direction",
         "geometry_fidelity": manifest["geometry"]["fidelity"],
+        "compatibility": deepcopy(manifest.get("compatibility", {
+            "level": "catalog_specific",
+            "claim": "No automatic interchangeability claim is made by this declaration.",
+        })),
         "interfaces": resolve_interfaces(definition.key, parameters, derived_values),
         "purchase": _purchase_spec(definition, manifest, dict(parameters), selected, derived_values),
         "standards": [
@@ -315,7 +327,10 @@ def instance_spec(
         ],
     }
     if derived_values:
-        result["derived"] = derived_values
+        result["derived"] = {
+            key: value for key, value in derived_values.items() if key != "keepout_envelopes"
+        }
+    result["keepouts"] = deepcopy(derived_values.get("keepout_envelopes", []))
     return result
 
 

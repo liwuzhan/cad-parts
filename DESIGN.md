@@ -1,6 +1,6 @@
 # cad-parts 设计文档
 
-- 版本：v2.0（模型优先的装配占位目录）
+- 版本：v2.1（扩展外购件与兼容性证据）
 - 日期：2026-08-27
 - 状态：首个可用实现
 
@@ -78,6 +78,8 @@ item 指向 family 并固定一组常见生成参数，例如：
 - 采购描述模板；
 - 代表样件；
 - 可选的具体 item 尺寸表。
+- 兼容性等级、声明边界和必须核对的接口字段；
+- 运动扫掠、接线、气流、维护等建议安全体积。
 
 模型的固定入口是仓库根目录 `CATALOG.md`。工具使用自动生成的
 `src/cadparts/data/catalog/index.json`。模型不得依赖文件遍历发现能力。
@@ -125,7 +127,7 @@ search → compare → describe → instantiate → 装配/BOM
 }
 ```
 
-首批接口类型包括：
+当前接口类型包括：
 
 - `axis`
 - `planar_face`
@@ -137,11 +139,28 @@ search → compare → describe → instantiate → 装配/BOM
 - `pitch_cylinder`
 - `pitch_cone`
 - `rectangular_key_contact`
+- `bolt_pattern` / `rectangular_hole_pattern`
+- `motor_flange` / `mounting_flange`
+- `cylindrical_shaft` / `hollow_output`
+- `linear_motion_axis` / `rotation_axis` / `flow_axis`
+- `wheel_contact` / `sensing_face`
 
-未来减速机、电机和气缸会继续加入 `motor_flange`、`bolt_pattern`、
-`output_shaft`、`hollow_output`、`pneumatic_port` 等接口。
+接口是放置和审查证据，不是强制求解器。模型可以直接用 frame 变换装配，也可以按面贴合、
+轴线同轴或成角等几何关系自行计算变换；库不把最终装配质量交给某个软件或报警规则。
 
-## 7. 精度层级
+## 7. 兼容性与安全体积
+
+兼容性声明分四级：
+
+- `normative`：某个标准明确规定了主要接口基础，仍需核对标准未覆盖的产品选项；
+- `cross_vendor_verified`：关键接口已经跨多个来源逐项比对；
+- `series_compatible`：市场通用系列或名义框号，只用于缩小选择，替代前必须核对声明字段；
+- `catalog_specific`：来自一个目录或参数集，不作互换性承诺。
+
+`keepouts` 描述完整行程、回转扫掠、接线弯曲、进排气、工具或维护空间。它是模型可选择使用的
+估计证据，不是碰撞报警器。程序不因建议安全体积相交就自动否决装配。
+
+## 8. 精度层级
 
 ### 必须准确
 
@@ -168,7 +187,7 @@ search → compare → describe → instantiate → 装配/BOM
 
 采购字段只提供型号与搜索/询价方向。未来可以由交易系统解析这些字段，但不进入当前实现范围。
 
-## 8. `cadparts.instance/v2`
+## 9. `cadparts.instance/v2`
 
 实例对象保存：
 
@@ -178,13 +197,15 @@ search → compare → describe → instantiate → 装配/BOM
 - 派生尺寸；
 - B-rep 实际包络；
 - 命名接口；
+- 兼容性等级和需核对字段；
+- 建议安全体积；
 - 采购型号或查询文本；
 - 几何精度声明；
 - 标准或产品系列来源。
 
 装配系统应记录整个实例 JSON，而不是只记录一个匿名 STEP 路径。
 
-## 9. 多模态贡献审查
+## 10. 多模态贡献审查
 
 每个 PR 的代表样件通过相同流水线：
 
@@ -210,36 +231,36 @@ search → compare → describe → instantiate → 装配/BOM
 - 四视图与零件性质相符；
 - 省略项没有被误宣称为制造精度。
 
-## 10. 当前实现与路线
+## 11. 当前实现与路线
 
 ### 已完成
 
-- 11 个 family；
-- 22 个 62/63 系列深沟球轴承 item；
+- 34 个 family、288 个可直接实例化的型号/规格条目；
+- 电机、直角/行星减速机、轴承座、联轴器；
+- 导轨、丝杠、支撑座、直线轴承和带/链传动；
+- ISO/市场系列气缸、电动执行器、传感器、风扇和设备附件；
 - 固定模型入口与包内 JSON 自声明；
 - `search/compare/describe/instantiate`；
 - `cadparts.instance/v2` 和具体装配接口；
+- 明示的兼容性等级与建议安全体积；
 - STEP/PNG 多模态审查；
 - 目录一致性和代表样件门禁。
 
-### 下一批高价值外购件
+### 后续按真实装配需求扩展
 
 优先级按“装配频率 × 手动画占用的模型上下文 × 接口重要性”排序：
 
-1. 轴用/孔用挡圈和更多轴承类型；
-2. RV/NMRV 等常见蜗轮蜗杆减速机；
-3. IEC/NEMA/常见国产系列电机；
-4. 联轴器、带座轴承、直线导轨和丝杆支撑座；
-5. 英制紧固件、链轮、同步带轮；
-6. 气缸、液压缸、脚轮和常见执行器；
-7. 更多结构型材。
+1. 轴用/孔用挡圈、更多轴承与英制紧固件；
+2. 液压缸、阀岛、泵和常见管接头；
+3. 机器人法兰、工装夹具和更多机架附件；
+4. 经来源核实的更多市场系列与厂商目录项。
 
 具体厂商系列可以进入目录，但必须保留来源和 series/vendor 身份；未经验证不得把不同厂商的
 相似型号假定为完全相同接口。
 
-## 11. 与 cad-tool 的后续集成
+## 12. 与 cad-tool 的集成
 
-`cad-tool` 后续增加模型工具：
+`cad-tool` 安装流程可以同时安装本库；模型侧只需发现以下目录操作：
 
 ```text
 cad_parts op=search

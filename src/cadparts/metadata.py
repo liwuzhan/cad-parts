@@ -13,6 +13,12 @@ from .errors import CatalogDataError, UnknownPartError
 
 CATALOG_SCHEMA = "cadparts.catalog-family/v1"
 INDEX_SCHEMA = "cadparts.catalog-index/v1"
+COMPATIBILITY_LEVELS = {
+    "normative",
+    "cross_vendor_verified",
+    "series_compatible",
+    "catalog_specific",
+}
 
 
 def catalog_root():
@@ -49,6 +55,16 @@ def _validate_manifest(data: Mapping[str, Any], *, source: str) -> None:
     for interface in data.get("interfaces", []):
         if not isinstance(interface, Mapping) or not {"id", "type", "role"} <= set(interface):
             raise CatalogDataError(f"{source}: every interface needs id, type and role")
+    compatibility = data.get("compatibility")
+    if compatibility is not None:
+        if not isinstance(compatibility, Mapping) or compatibility.get("level") not in COMPATIBILITY_LEVELS:
+            choices = ", ".join(sorted(COMPATIBILITY_LEVELS))
+            raise CatalogDataError(f"{source}: compatibility.level must be one of: {choices}")
+        if "claim" not in compatibility:
+            raise CatalogDataError(f"{source}: compatibility.claim is required")
+    for keepout in data.get("keepouts", []):
+        if not isinstance(keepout, Mapping) or not {"id", "purpose"} <= set(keepout):
+            raise CatalogDataError(f"{source}: every keepout needs id and purpose")
 
 
 def load_manifests() -> list[dict[str, Any]]:
@@ -75,7 +91,7 @@ def load_manifests() -> list[dict[str, Any]]:
 
 
 def _compact_family(manifest: Mapping[str, Any], *, source_path: str) -> dict[str, Any]:
-    return {
+    result = {
         "id": manifest["id"],
         "family": manifest["id"],
         "kind": "family",
@@ -88,6 +104,9 @@ def _compact_family(manifest: Mapping[str, Any], *, source_path: str) -> dict[st
         "geometry_fidelity": manifest["geometry"]["fidelity"],
         "path": source_path,
     }
+    if "compatibility" in manifest:
+        result["compatibility"] = deepcopy(manifest["compatibility"])
+    return result
 
 
 def build_catalog_index(manifests: Iterable[Mapping[str, Any]] | None = None) -> dict[str, Any]:
@@ -109,7 +128,7 @@ def build_catalog_index(manifests: Iterable[Mapping[str, Any]] | None = None) ->
                 raise CatalogDataError(f"{manifest['id']}: every item needs an id")
             item_id = str(item["id"])
             short_id = item_id.rsplit(".", 1)[-1]
-            entries.append({
+            compact_item = {
                 "id": item_id,
                 "family": manifest["id"],
                 "kind": "item",
@@ -130,7 +149,11 @@ def build_catalog_index(manifests: Iterable[Mapping[str, Any]] | None = None) ->
                 "generator": deepcopy(item.get("generator", {})),
                 "geometry_fidelity": manifest["geometry"]["fidelity"],
                 "path": source_path,
-            })
+            }
+            compatibility = item.get("compatibility", manifest.get("compatibility"))
+            if compatibility is not None:
+                compact_item["compatibility"] = deepcopy(compatibility)
+            entries.append(compact_item)
     return {
         "schema": INDEX_SCHEMA,
         "entrypoint": "CATALOG.md",

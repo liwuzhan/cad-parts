@@ -39,6 +39,29 @@ unless their assembly-critical interfaces were verified identical.
 | Structural hollow sections | [GB/T 6728-2025](https://openstd.samr.gov.cn/bzgk/std/showGb?hcno=D2862F3B35CBDC75C7262BEAEE5B47FD&request_locale=zh&type=online) | [ASTM A500/A500M-23](https://store.astm.org/a0500_a0500m-23.html) | User-specified nominal section envelope |
 | Hot-rolled equal angles | [GB/T 706-2016](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=80EC2383403568E9F0F850B044C0DC5F) | ASTM shape families require separate licensed dimensional data | Explicit leg/thickness sharp envelope |
 | Parallel keys | [GB/T 1096-2003](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=AF989792A444C725A4F3FFB90F183772) | [ASME B17.1-1967 (S2023)](https://www.asme.org/codes-standards/find-codes-standards/b17-1-keys-keyseats) | Explicit b×h×L and end form; no keyway/tolerance |
+| Square stepper motors | Common frame classes checked against [Oriental Motor frame-size guidance](https://www.orientalmotor.com/stepper-motors/stepper-motor-frame-sizes.html) | NEMA-like names remain search aliases, not universal interchangeability claims | Frame, pilot, bolt pattern and shaft planning evidence |
+| IEC rotating machines | [IEC 60072-1:2022](https://webstore.iec.ch/en/publication/67088) | NEMA frames require a separate family | Shaft height and B3/B5/B14/B35 interface basis |
+| Right-angle gearboxes | NMRV range checked against the [Motovario VSF/NMRV series](https://www.motovario.com/eng/products/worm-gear-reducers--vsf-series/worm-gear-reducers-combined-and-with-pre-stage-reduction-unit) | BKM is retained as a distinct market series | Nominal market-series envelope and I/O interface evidence; verify vendor drawing before substitution |
+| Profile linear guides | [HIWIN linear-guide product families](https://hiwin.com/products/linear-guideways/) | Other makers may use similar but not identical names | MGN/MGW/HGR/HGW planning profiles, rail holes and carriage sweep |
+| Ball screws/supports | [HIWIN ballscrew and support families](https://hiwin.com/products/ballscrews-supports/) | Finished shaft ends remain product-specific | SFU screw/nut and BK/BF/EK/EF/FK/FF planning profiles |
+| Roller-chain sprockets | [ISO 606:2015](https://www.iso.org/standard/61232.html) | ANSI chain series require separate tables | Pitch-circle and chain-plane planning geometry |
+| Small-bore pneumatic cylinders | [ISO 6432:2015](https://www.iso.org/standard/66468.html) | — | Nominal bore and mounting-interface basis; accessories remain catalog-specific |
+| Detachable-mount pneumatic cylinders | [ISO 15552:2018](https://www.iso.org/standard/72672.html) | — | Nominal profile and mounting-interface basis |
+| Compact pneumatic cylinders | [ISO 21287:2004](https://www.iso.org/standard/32705.html) | SDA is documented separately as a market family | Compact envelope and interface basis; do not equate SDA with ISO by name |
+
+## Compatibility claims
+
+Every manifest declares one of these levels:
+
+| Level | Meaning |
+|---|---|
+| `normative` | A cited standard governs the stated interface basis. Product options outside that scope still need checking. |
+| `cross_vendor_verified` | Assembly-critical fields were compared across more than one vendor source. The fields are listed in `match_fields`. |
+| `series_compatible` | A common market series or nominal frame narrows procurement. It is not a blanket interchangeability claim. |
+| `catalog_specific` | Dimensions describe one catalog or explicit parameter set; no automatic substitution is claimed. |
+
+The claim is intentionally returned with every search result and generated instance. A model should compare the listed
+`match_fields` before replacing one product with another and should preserve unresolved options in the BOM description.
 
 ## Edition handling
 

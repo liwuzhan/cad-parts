@@ -13,6 +13,23 @@ from .catalog import (
     list_families,
     search,
 )
+from .couplings import flexible_coupling, flexible_coupling_dimensions
+from .drives import (
+    chain_sprocket,
+    chain_sprocket_dimensions,
+    taper_lock_bush,
+    taper_lock_dimensions,
+    timing_pulley,
+    timing_pulley_dimensions,
+)
+from .electromechanical import (
+    axial_fan,
+    axial_fan_dimensions,
+    electric_actuator,
+    electric_actuator_dimensions,
+    proximity_sensor,
+    proximity_sensor_dimensions,
+)
 from .bearings import deep_groove_bearing, deep_groove_dimensions
 from .fasteners import (
     hex_bolt_metric,
@@ -28,8 +45,34 @@ from .gears import (
     straight_bevel_gear,
     straight_bevel_gear_dimensions,
 )
+from .gearboxes import (
+    inline_planetary,
+    planetary_dimensions,
+    right_angle_dimensions,
+    right_angle_gearbox,
+)
 from .keys import parallel_key, parallel_key_dimensions
+from .linear_motion import (
+    ball_screw,
+    ball_screw_dimensions,
+    linear_guide,
+    linear_guide_dimensions,
+    screw_support,
+    screw_support_dimensions,
+    supported_round_guide,
+    supported_round_guide_dimensions,
+)
+from .linear_bushings import linear_bushing, linear_bushing_dimensions
 from .models import FamilyDefinition, ParameterSpec, PartInstance, StandardReference
+from .mounted_bearings import mounted_bearing, mounted_bearing_dimensions
+from .motors import (
+    iec_motor,
+    iec_motor_dimensions,
+    servo_square,
+    servo_square_dimensions,
+    stepper_square,
+    stepper_square_dimensions,
+)
 from .profiles import (
     equal_angle,
     equal_angle_dimensions,
@@ -40,13 +83,32 @@ from .profiles import (
     square_tube,
     square_tube_dimensions,
 )
+from .pneumatics import (
+    compact_cylinder,
+    compact_cylinder_dimensions,
+    iso15552_cylinder,
+    iso15552_dimensions,
+    iso6432_cylinder,
+    iso6432_dimensions,
+)
+from .shop_hardware import caster, caster_dimensions, leveling_foot, leveling_foot_dimensions
 
 __all__ = [
     "FamilyDefinition",
     "ParameterSpec",
     "PartInstance",
     "StandardReference",
+    "axial_fan",
+    "axial_fan_dimensions",
     "compare",
+    "compact_cylinder",
+    "compact_cylinder_dimensions",
+    "chain_sprocket",
+    "chain_sprocket_dimensions",
+    "caster",
+    "caster_dimensions",
+    "ball_screw",
+    "ball_screw_dimensions",
     "create",
     "deep_groove_bearing",
     "deep_groove_dimensions",
@@ -55,6 +117,10 @@ __all__ = [
     "describe_part",
     "equal_angle",
     "equal_angle_dimensions",
+    "electric_actuator",
+    "electric_actuator_dimensions",
+    "flexible_coupling",
+    "flexible_coupling_dimensions",
     "get_family",
     "hex_bolt_metric",
     "hex_bolt_metric_dimensions",
@@ -62,20 +128,52 @@ __all__ = [
     "hex_nut_metric_dimensions",
     "instance_spec",
     "instantiate",
+    "iec_motor",
+    "iec_motor_dimensions",
+    "iso15552_cylinder",
+    "iso15552_dimensions",
+    "iso6432_cylinder",
+    "iso6432_dimensions",
+    "inline_planetary",
     "list_families",
+    "linear_guide",
+    "linear_guide_dimensions",
+    "linear_bushing",
+    "linear_bushing_dimensions",
+    "leveling_foot",
+    "leveling_foot_dimensions",
+    "mounted_bearing",
+    "mounted_bearing_dimensions",
     "parallel_key",
     "parallel_key_dimensions",
+    "planetary_dimensions",
     "plain_washer_metric",
     "plain_washer_metric_dimensions",
+    "proximity_sensor",
+    "proximity_sensor_dimensions",
     "round_rod",
     "round_rod_dimensions",
     "round_tube",
     "round_tube_dimensions",
+    "right_angle_dimensions",
+    "right_angle_gearbox",
     "search",
+    "screw_support",
+    "screw_support_dimensions",
+    "servo_square",
+    "servo_square_dimensions",
     "square_tube",
     "square_tube_dimensions",
+    "stepper_square",
+    "stepper_square_dimensions",
     "spur_gear",
     "spur_gear_dimensions",
     "straight_bevel_gear",
     "straight_bevel_gear_dimensions",
+    "taper_lock_bush",
+    "taper_lock_dimensions",
+    "timing_pulley",
+    "timing_pulley_dimensions",
+    "supported_round_guide",
+    "supported_round_guide_dimensions",
 ]
