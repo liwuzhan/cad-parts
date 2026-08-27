@@ -23,12 +23,90 @@ gear = spur_gear(module=2, teeth=24, bore=20, width=12)
 - 装配引用携带规格语义（`6204` / `M8×30` / `40×40×3 方管`），BOM 与干涉豁免
   依赖零件身份而非匿名几何。
 
-## 状态：占位（设计完成，实现未开始）
+## 当前状态
 
-完整设计见 [DESIGN.md](./DESIGN.md)。首批 P0 四族：直齿轮、深沟球轴承
-（62/63xx）、螺栓/螺母/垫圈、方管——覆盖履带底盘案例全部外购件。
+首个可用版本已经实现。当前目录包含 11 个参数化 family：
 
-计划路线图见 DESIGN.md §9（PL-M0 内核 → PL-M1 P0 四族 → 集成 → 扩展）。
+| family | 关键参数 | 默认几何语义 |
+|---|---|---|
+| `gear.spur` | module, teeth, bore, width | 真实渐开线工作齿廓；齿根过渡简化 |
+| `gear.bevel_straight` | module, teeth, mate_teeth, bore, face_width | 节锥宏观几何正确的装配/布局放样；不是加工齿面 |
+| `bearing.deep_groove` | code, detail | 62/63 系列 d/D/B 精确包络；可选启发式滚珠预览 |
+| `fastener.hex_bolt_metric` | size, length | 六角头 + 公称螺纹大径圆柱包络 |
+| `fastener.hex_nut_metric` | size | 六角包络 + 圆柱螺纹包络孔 |
+| `fastener.plain_washer_metric` | size | A 级/普通系列名义包络 |
+| `profile.square_tube` | side, wall, length | 方形空心型钢，可选圆角 |
+| `profile.round_tube` | outer_diameter, wall, length | 圆形空心型钢 |
+| `profile.round_rod` | diameter, length | 通用圆棒包络 |
+| `profile.equal_angle` | leg, thickness, length | 等边角钢锐角简化包络 |
+| `key.parallel` | width, height, length, end_type | A/B/C 型普通平键 |
+
+完整设计和后续路线见 [DESIGN.md](./DESIGN.md)，标准来源与版权边界见
+[docs/STANDARDS.md](./docs/STANDARDS.md)。
+
+## 安装与 Python 调用
+
+```bash
+python -m venv .venv
+.venv/bin/pip install -e '.[dev]'
+```
+
+```python
+from cadparts import create, derive, list_families
+
+catalog = list_families(category="gear")
+
+# 不创建几何，先计算分度圆/基圆/齿顶圆/齿根圆等派生规格
+dimensions = derive(
+    "gear.spur",
+    module=2,
+    teeth=24,
+    bore=10,
+    width=12,
+)
+
+# 参数确认后再创建 build123d 实体
+gear = create("gear.spur", module=2, teeth=24, bore=10, width=12)
+bearing = create("bearing.deep_groove", code="6204")
+bolt = create("fastener.hex_bolt_metric", size="M8", length=30)
+```
+
+## 面向模型的 JSON CLI
+
+CLI 的正常结果与错误都使用紧凑 JSON，适合 Codex、DSH 或其他代理调用：
+
+```bash
+cadparts list --category gear
+cadparts describe gear.spur
+cadparts derive gear.spur \
+  --params '{"module":2,"teeth":24,"bore":10,"width":12}'
+cadparts build gear.spur \
+  --params '{"module":2,"teeth":24,"bore":10,"width":12}' \
+  --output gear.step
+```
+
+推荐固定路由为：
+
+```text
+list → describe → derive → build → 装配/验证
+```
+
+## 精度边界
+
+- 标准引用固定到明确版本；库保存名义尺寸、公式和来源元数据，不分发标准全文。
+- 输出是参数化理想实体，不代表材料、热处理、公差、强度、精度或制造符合性认证。
+- 螺纹默认是轻量包络；轴承内部 `rings` 仅用于识别性预览。
+- 直齿轮的渐开线工作齿廓可用于布局和啮合几何；齿根刀具包络、修形、侧隙与强度需另行设计。
+- 直齿伞齿轮当前是布局模型，不能用于接触斑点、切齿数据或生产检验。
+
+## 验证
+
+```bash
+pytest -q
+```
+
+测试覆盖参数契约、查表尺寸、解析体积、实体数、STEP 导出、齿轮中心距无体积穿插，
+并对代表样件执行 STEP 重新解析与 PNG 人工复核。
 
 ## 许可
 

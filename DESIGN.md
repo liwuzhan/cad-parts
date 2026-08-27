@@ -1,8 +1,8 @@
 # 标准件库（Parts Library）设计文档
 
-- 版本：v1（设计稿，未实施）
-- 日期：2026-08-17
-- 状态：待评审
+- 版本：v1.1（实现同步稿）
+- 日期：2026-08-27
+- 状态：PL-M0 / PL-M1 已完成，PL-M3 部分完成
 - 前置阅读：`docs/assembly_design.md`（装配体设计，本文与其 M2 依赖模型联动）
 - 定位：**先有零件库，再有装配体**——库是装配的依赖底座，也是 LLM 的上下文压缩器
 
@@ -62,7 +62,7 @@
 
 ```
 L1  参数化族库（Python，随 cad_cli 版本管理）
-    cad_cli/parts/
+    cadparts/
       gear.py      spur_gear(module, teeth, bore, width, pressure_angle=20, ...)
       bearing.py   deep_groove(code="6204", detail="simplified"|"rings")
       fastener.py  bolt(M8, length=30, head="hex"), hex_nut(M8), washer(M8)
@@ -75,7 +75,7 @@ L2  实例 = 装配 deps 条目 或 脚本内直接调用
     包引用：  { name: "road_wheel", pkg: { package: "road_wheel.456d", commit: "a52ab574" } }
 ```
 
-- L1 是**代码库**：版本随 `cad_cli.__version__`（pyproject 单一版本源），装配引用
+- L1 是独立的 **`cad-parts` Python 包**：版本随 `cadparts.__version__`，装配引用
   记录库版本即可复现；库不做成 .456d（它不是模型，是能力）。
 - L2 装配 deps 同时支持 `std:`（库族+参数）与 `pkg:`（既有包 pin），一条 manifest
   管两类依赖（`assembly_design.md` §5.1 的 deps 模型据此升级）。
@@ -195,10 +195,10 @@ cad_parts op=describe family=...  → 参数表 + 默认值 + 出处标准 + 验
 
 ## 8. 版本与复现
 
-- 库版本 = `cad_cli.__version__`（单一版本源）；装配 commit 元数据记录
+- 库版本 = `cadparts.__version__`；装配 commit 元数据记录
   `lib` 版本，重建时 venv pip pin 同版本即复现；
 - family 破坏性参数变更 → minor bump + CHANGELOG 记录迁移；
-- 库代码进 `src/cad_cli/parts/`，与 CLI 同仓同测（无独立仓库管理成本）。
+- 库代码位于独立 `src/cadparts/` 包；`cad-tool` 通过显式版本依赖消费，不复制源码。
 
 ---
 
@@ -206,10 +206,10 @@ cad_parts op=describe family=...  → 参数表 + 默认值 + 出处标准 + 验
 
 | 里程碑 | 内容 | 验收 |
 |---|---|---|
-| PL-M0 内核 | `parts/` 包骨架、family 注册表、验证 fixture 框架、1 个样例族（square_tube） | pytest 绿 |
-| PL-M1 P0 四族 | gear / bearing / fastener / square_tube + 尺寸表 + 全部验证 | pytest 绿；履带底盘外购件全覆盖 |
+| PL-M0 内核 | `cadparts/` 包骨架、family 注册表、`list/describe/derive/build`、square_tube | **已完成**；pytest 绿 |
+| PL-M1 P0 四族 | gear / bearing / fastener / square_tube + 尺寸表 + 全部验证 | **已完成**；STEP/PNG 与齿轮啮合语义通过 |
 | PL-M2 集成 | 装配 deps `std:` 引用、skill 速查表+路由规则、反模式 A9 | 装配引用库件跑通干涉检查 |
-| PL-M3 P1 族 + `cad_parts` 工具 | round_tube/angle/key/ring + 第 17 工具 | describe 返回 ≤500 token |
+| PL-M3 P1 族 + `cad_parts` 工具 | round_tube/rod/angle/key/ring + 第 17 工具 | **部分完成**：前四族和 JSON CLI 已完成，ring/插件工具待做 |
 | PL-M4 P2/P3 族 | pulley/sprocket/extrusion/motor_flange | 按需 |
 
 **总顺序建议**：PL-M0 → PL-M1 ∥（装配 M1 验证基建）→ 装配 M2 与 PL-M2 合流

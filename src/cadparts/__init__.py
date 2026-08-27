@@ -1,11 +1,65 @@
-"""cad-parts: 参数化标准件库（占位骨架）。
+"""Language-model-friendly parametric standard parts for build123d."""
 
-每个零件族一个模块，验证基准在 tests/。无测试的族不合入。
-设计文档见仓库根 DESIGN.md。
-"""
+from .catalog import create, derive, describe, get_family, list_families
+from .bearings import deep_groove_bearing, deep_groove_dimensions
+from .fasteners import (
+    hex_bolt_metric,
+    hex_bolt_metric_dimensions,
+    hex_nut_metric,
+    hex_nut_metric_dimensions,
+    plain_washer_metric,
+    plain_washer_metric_dimensions,
+)
+from .gears import (
+    spur_gear,
+    spur_gear_dimensions,
+    straight_bevel_gear,
+    straight_bevel_gear_dimensions,
+)
+from .keys import parallel_key, parallel_key_dimensions
+from .models import FamilyDefinition, ParameterSpec, StandardReference
+from .profiles import (
+    equal_angle,
+    equal_angle_dimensions,
+    round_rod,
+    round_rod_dimensions,
+    round_tube,
+    round_tube_dimensions,
+    square_tube,
+    square_tube_dimensions,
+)
 
-__version__ = "0.0.1-placeholder"
+__all__ = [
+    "FamilyDefinition",
+    "ParameterSpec",
+    "StandardReference",
+    "create",
+    "deep_groove_bearing",
+    "deep_groove_dimensions",
+    "derive",
+    "describe",
+    "equal_angle",
+    "equal_angle_dimensions",
+    "get_family",
+    "hex_bolt_metric",
+    "hex_bolt_metric_dimensions",
+    "hex_nut_metric",
+    "hex_nut_metric_dimensions",
+    "list_families",
+    "parallel_key",
+    "parallel_key_dimensions",
+    "plain_washer_metric",
+    "plain_washer_metric_dimensions",
+    "round_rod",
+    "round_rod_dimensions",
+    "round_tube",
+    "round_tube_dimensions",
+    "square_tube",
+    "square_tube_dimensions",
+    "spur_gear",
+    "spur_gear_dimensions",
+    "straight_bevel_gear",
+    "straight_bevel_gear_dimensions",
+]
 
-# 族注册表：family 名 -> (模块, 工厂函数, 一句话描述)
-# PL-M0 实现；首批 P0 四族见 DESIGN.md §5
-REGISTRY: dict = {}
+__version__ = "0.1.0"
