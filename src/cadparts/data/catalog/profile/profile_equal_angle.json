@@ -17,5 +17,6 @@
     {"id": "end_max", "type": "profile_end", "role": "cut/join plane"}
   ],
   "purchase": {"designation_template": "equal angle {leg}x{leg}x{thickness}, cut length {length}"},
+  "parameters": [{"name": "leg", "type": "number", "description": "Equal outside leg length", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "thickness", "type": "number", "description": "Nominal leg thickness", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "length", "type": "number", "description": "Length along +Z", "required": true, "unit": "mm", "minimum": 0.0}],
   "sample": {"params": {"leg": 50, "thickness": 5, "length": 100}}
 }

@@ -17,5 +17,6 @@
     {"id": "end_max", "type": "profile_end", "role": "cut/join plane"}
   ],
   "purchase": {"designation_template": "square tube {side}x{side}x{wall}, cut length {length}"},
+  "parameters": [{"name": "side", "type": "number", "description": "Outside side length", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "wall", "type": "number", "description": "Nominal wall thickness", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "length", "type": "number", "description": "Extrusion length along +Z", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "corner_radius", "type": "number", "description": "Optional outside corner radius; 0 keeps the simplified sharp envelope", "required": false, "unit": "mm", "default": 0.0, "minimum": 0.0}],
   "sample": {"params": {"side": 40, "wall": 3, "length": 100}}
 }

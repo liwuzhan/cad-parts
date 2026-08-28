@@ -9,6 +9,7 @@
   "keepouts":[{"id":"adjustment_and_spanner_access","purpose":"Foot, vertical adjustment and spanner access."}],
   "purchase":{"designation_template":"leveling foot {thread} stem length {stem_length}","note":"Select load, pad, articulation, corrosion protection and locking nut separately."},
   "sample":{"params":{"thread":"M16"}},
+  "parameters": [{"name":"thread","type":"string","description":"Metric stem","required":true,"choices":["M8","M10","M12","M16","M20","M24","M30"]},{"name":"stem_length","type":"number|null","description":"Threaded stem length","required":false,"unit":"mm","default":null}],
   "items":[
     {"id":"hardware.leveling_foot.m8","name":"M8 leveling foot","generator":{"params":{"thread":"M8"}}},
     {"id":"hardware.leveling_foot.m10","name":"M10 leveling foot","generator":{"params":{"thread":"M10"}}},

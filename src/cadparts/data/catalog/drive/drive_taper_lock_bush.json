@@ -18,6 +18,7 @@
   "keepouts": [{"id":"bushing_and_extraction_access","purpose":"Bushing envelope and axial extraction access."}],
   "purchase": {"designation_template":"taper-lock {code} finished bore {bore}","note":"Pin manufacturer taper and screw specification before machining the mating hub."},
   "sample": {"params":{"code":"2012","bore":35}},
+  "parameters": [{"name": "code", "type": "string", "description": "Bushing size", "required": true, "choices": ["1008", "1210", "1610", "2012", "2517", "3020", "3525"]}, {"name": "bore", "type": "number", "description": "Finished shaft bore", "required": true, "unit": "mm", "minimum": 0}],
   "items": [
     {"id":"drive.taper_lock_bush.1008","name":"Taper-lock 1008","aliases":["1008锥套"],"dimensions_mm":{"outside":35,"length":22.3,"max_bore":25},"generator":{"params":{"code":"1008","bore":20}}},
     {"id":"drive.taper_lock_bush.1210","name":"Taper-lock 1210","aliases":["1210锥套"],"dimensions_mm":{"outside":47.5,"length":25.4,"max_bore":32},"generator":{"params":{"code":"1210","bore":25}}},

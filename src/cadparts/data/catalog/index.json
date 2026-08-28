@@ -6827,7 +6827,13 @@
         "body_diameter": 110,
         "body_length": 150,
         "input_face": 110,
-        "output_shaft": 32
+        "input_hole_pitch": 95,
+        "input_pilot_diameter": 95,
+        "output_flange_diameter": 130,
+        "output_hole_pitch": 110,
+        "output_pilot_diameter": 100,
+        "output_shaft_diameter": 32,
+        "output_shaft_length": 50
       },
       "family": "gearbox.planetary.inline",
       "generator": {
@@ -6877,7 +6883,13 @@
         "body_diameter": 130,
         "body_length": 175,
         "input_face": 130,
-        "output_shaft": 35
+        "input_hole_pitch": 110,
+        "input_pilot_diameter": 110,
+        "output_flange_diameter": 150,
+        "output_hole_pitch": 130,
+        "output_pilot_diameter": 120,
+        "output_shaft_diameter": 35,
+        "output_shaft_length": 55
       },
       "family": "gearbox.planetary.inline",
       "generator": {
@@ -6927,7 +6939,13 @@
         "body_diameter": 42,
         "body_length": 65,
         "input_face": 42,
-        "output_shaft": 12
+        "input_hole_pitch": 31,
+        "input_pilot_diameter": 22,
+        "output_flange_diameter": 48,
+        "output_hole_pitch": 40,
+        "output_pilot_diameter": 35,
+        "output_shaft_diameter": 12,
+        "output_shaft_length": 25
       },
       "family": "gearbox.planetary.inline",
       "generator": {
@@ -6977,7 +6995,13 @@
         "body_diameter": 60,
         "body_length": 85,
         "input_face": 60,
-        "output_shaft": 16
+        "input_hole_pitch": 50,
+        "input_pilot_diameter": 50,
+        "output_flange_diameter": 70,
+        "output_hole_pitch": 58,
+        "output_pilot_diameter": 55,
+        "output_shaft_diameter": 16,
+        "output_shaft_length": 30
       },
       "family": "gearbox.planetary.inline",
       "generator": {
@@ -7027,7 +7051,13 @@
         "body_diameter": 80,
         "body_length": 110,
         "input_face": 80,
-        "output_shaft": 22
+        "input_hole_pitch": 70,
+        "input_pilot_diameter": 70,
+        "output_flange_diameter": 90,
+        "output_hole_pitch": 75,
+        "output_pilot_diameter": 70,
+        "output_shaft_diameter": 22,
+        "output_shaft_length": 40
       },
       "family": "gearbox.planetary.inline",
       "generator": {
@@ -7077,7 +7107,13 @@
         "body_diameter": 90,
         "body_length": 120,
         "input_face": 90,
-        "output_shaft": 22
+        "input_hole_pitch": 80,
+        "input_pilot_diameter": 80,
+        "output_flange_diameter": 100,
+        "output_hole_pitch": 85,
+        "output_pilot_diameter": 80,
+        "output_shaft_diameter": 22,
+        "output_shaft_length": 40
       },
       "family": "gearbox.planetary.inline",
       "generator": {

@@ -17,5 +17,6 @@
     {"id": "head_bearing_face", "type": "planar_face", "role": "clamp location"}
   ],
   "purchase": {"designation_template": "{size}x{length} hex-head screw"},
+  "parameters": [{"name": "size", "type": "string|number", "description": "Metric nominal thread designation", "required": true, "choices": ["M3", "M4", "M5", "M6", "M8", "M10", "M12", "M14", "M16", "M18", "M20", "M22", "M24"]}, {"name": "length", "type": "number", "description": "Nominal length below the head", "required": true, "unit": "mm", "minimum": 0.0}],
   "sample": {"params": {"size": "M8", "length": 30}}
 }

@@ -40,13 +40,13 @@ cadparts instantiate 6204 \
 | 电机 | `motor.induction.iec` | IEC 63–132 机座、B3/B5/B14/B35 安装接口和输出轴 |
 | 减速机 | `gearbox.right_angle.market` | NMRV/BKM 外形、输入接口、单轴/双轴/空心输出和安装孔 |
 | 减速机 | `gearbox.planetary.inline` | 42–130 电机类输入法兰、同轴输出和机体包络 |
-| 直线 | `linear.guide.rail` | MGN/MGW/HGR/HGW 导轨、滑块、孔列和完整运动扫掠 |
+| 直线 | `linear.guide.rail` | MGN/MGW/HGR/HGW 导轨、滑块、孔列和完整运动扫掠；`rail_width` 为轨本体宽，装滑块后宽度看 `block_width` |
 | 直线 | `linear.ball_screw` | SFU 丝杠、导程、螺母法兰、两端基准和螺母扫掠 |
 | 直线 | `linear.screw_support` | BK/BF/EK/EF/FK/FF 轴孔、轴线和端面安装孔阵列 |
 | 直线 | `linear.guide.supported_round` | SBR/TBR 支撑圆导轨、滑块和运动扫掠 |
 | 直线 | `linear.bushing.ball` | LM/LME/LMF/LMK 轴孔、法兰和长度包络 |
-| 传动 | `drive.timing_pulley` | GT2/HTD 节距、齿数、带宽、轴孔和节圆 |
-| 传动 | `drive.chain_sprocket` | 06B/08B/10B/12B 节距、齿数、轴孔和链条平面 |
+| 传动 | `drive.timing_pulley` | GT2/HTD 节距、齿数、带宽、轴孔和节圆；齿形省略，齿数仅决定节圆 |
+| 传动 | `drive.chain_sprocket` | 06B/08B/10B/12B 节距、齿数、轴孔和链条平面；齿形省略，齿数仅决定节圆 |
 | 传动 | `drive.taper_lock_bush` | 1008–3525 锥套外形、轴孔和轮毂接口 |
 | 齿轮 | `gear.spur` | 模数、齿数、轴孔、分度圆和外形；不含强度与公差 |
 | 齿轮 | `gear.bevel_straight` | 直齿伞齿轮节锥布局；不是生产齿面 |
@@ -92,6 +92,7 @@ cadparts instantiate 6204 \
 
 ```bash
 cadparts validate-catalog --build-samples
+cadparts validate-catalog --all-items   # 发布前逐条实例化并验证全部 288 个条目
 cadparts review <family-or-item> --output-dir review
 ```
 

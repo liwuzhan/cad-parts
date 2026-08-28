@@ -9,6 +9,7 @@
   "keepouts":[{"id":"sensing_clearance","purpose":"Unobstructed target approach volume."},{"id":"rear_connector_and_bend","purpose":"Rear connector/cable bend allowance."}],
   "purchase":{"designation_template":"{thread} proximity sensor {connector}","note":"Select sensing distance, flush mounting, PNP/NPN, NO/NC, voltage and IP rating separately."},
   "sample":{"params":{"thread":"M18"}},
+  "parameters": [{"name":"thread","type":"string","description":"Metric threaded body","required":true,"choices":["M8","M12","M18","M30"]},{"name":"connector","type":"string","description":"Rear termination","required":false,"default":"cable","choices":["cable","m8","m12"]}],
   "items":[
     {"id":"sensor.proximity.threaded.m8","name":"M8 proximity sensor envelope","aliases":["M8接近开关"],"generator":{"params":{"thread":"M8"}}},
     {"id":"sensor.proximity.threaded.m12","name":"M12 proximity sensor envelope","aliases":["M12接近开关"],"generator":{"params":{"thread":"M12"}}},

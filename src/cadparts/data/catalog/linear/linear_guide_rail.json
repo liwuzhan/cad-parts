@@ -26,6 +26,7 @@
   "keepouts": [{"id": "carriage_sweep", "purpose": "Moving carriage sweep across usable rail length."}],
   "purchase": {"designation_template": "{series}{size} linear guide rail length {rail_length}", "note": "Select block length, preload, accuracy, seal and lubrication from a pinned catalog."},
   "sample": {"params": {"series": "MGN", "size": "12", "rail_length": 300}},
+  "parameters": [{"name": "series", "type": "string", "description": "Guide family", "required": true, "choices": ["MGN", "MGW", "HGR", "HGW"]}, {"name": "size", "type": "string", "description": "Nominal size", "required": true}, {"name": "rail_length", "type": "number", "description": "Rail length", "required": false, "unit": "mm", "default": 300}, {"name": "block_position", "type": "number|null", "description": "Carriage center from rail start", "required": false, "unit": "mm", "default": null}],
   "items": [
     {"id":"linear.guide.rail.mgn7","name":"MGN7 guide profile","aliases":["MGN7"],"dimensions_mm":{"rail_width":7,"assembly_height":8},"generator":{"params":{"series":"MGN","size":"7"}}},
     {"id":"linear.guide.rail.mgn9","name":"MGN9 guide profile","aliases":["MGN9"],"dimensions_mm":{"rail_width":9,"assembly_height":10},"generator":{"params":{"series":"MGN","size":"9"}}},

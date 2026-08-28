@@ -18,5 +18,6 @@
     {"id": "end_max", "type": "profile_end", "role": "cut/join plane"}
   ],
   "purchase": {"designation_template": "round bar diameter {diameter}, cut length {length}"},
+  "parameters": [{"name": "diameter", "type": "number", "description": "Nominal diameter", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "length", "type": "number", "description": "Length along +Z", "required": true, "unit": "mm", "minimum": 0.0}],
   "sample": {"params": {"diameter": 20, "length": 100}}
 }

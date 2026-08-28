@@ -25,6 +25,7 @@
   "keepouts": [{"id": "block_sweep", "purpose": "Bearing-block sweep along supported shaft."}],
   "purchase": {"designation_template": "{series}{diameter} supported round guide length {length}", "note": "Verify support profile and block mounting pattern with the chosen vendor."},
   "sample": {"params": {"series": "SBR", "diameter": "20", "length": 500}},
+  "parameters": [{"name": "series", "type": "string", "description": "Support family", "required": true, "choices": ["SBR", "TBR"]}, {"name": "diameter", "type": "string", "description": "Shaft diameter", "required": true, "choices": ["12", "16", "20", "25", "30", "35", "40"]}, {"name": "length", "type": "number", "description": "Rail length", "required": false, "unit": "mm", "default": 500}, {"name": "block_position", "type": "number|null", "description": "Block center", "required": false, "unit": "mm", "default": null}],
   "items": [
     {"id":"linear.guide.supported_round.sbr12","name":"SBR12 supported guide","aliases":["SBR12"],"dimensions_mm":{"shaft":12},"generator":{"params":{"series":"SBR","diameter":"12"}}},
     {"id":"linear.guide.supported_round.sbr16","name":"SBR16 supported guide","aliases":["SBR16"],"dimensions_mm":{"shaft":16},"generator":{"params":{"series":"SBR","diameter":"16"}}},

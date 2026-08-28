@@ -2,6 +2,15 @@ import pytest
 
 from cadparts import create, describe, list_families
 from cadparts.errors import InvalidParameterError, UnknownFamilyError
+from cadparts.metadata import load_manifests
+
+
+def test_every_declaration_persists_the_generator_parameter_contract():
+    for manifest in load_manifests():
+        declared = manifest["parameters"]
+        assert declared, f"{manifest['id']}: parameters must be persisted"
+        contract = describe(manifest["id"])["parameters"]
+        assert declared == contract, manifest["id"]
 
 
 def test_catalog_lists_square_tube_compactly():

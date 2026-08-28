@@ -26,6 +26,7 @@
   "keepouts": [{"id": "nut_sweep", "purpose": "Ball-nut flange sweep along the screw axis."}],
   "purchase": {"designation_template": "{code} ball screw length {length}", "note": "End machining, accuracy grade, preload and support bearings must be selected separately."},
   "sample": {"params": {"code": "SFU1605", "length": 500}},
+  "parameters": [{"name": "code", "type": "string", "description": "Finite SFU designation", "required": true, "choices": ["SFU1204", "SFU1605", "SFU1610", "SFU2005", "SFU2010", "SFU2505", "SFU3205"]}, {"name": "length", "type": "number", "description": "Screw length", "required": false, "unit": "mm", "default": 500}, {"name": "nut_position", "type": "number|null", "description": "Nut center from fixed end", "required": false, "unit": "mm", "default": null}],
   "items": [
     {"id":"linear.ball_screw.sfu1204","name":"SFU1204 ball screw","aliases":["SFU1204","1204丝杆"],"dimensions_mm":{"diameter":12,"lead":4,"nut_flange":42},"generator":{"params":{"code":"SFU1204"}}},
     {"id":"linear.ball_screw.sfu1605","name":"SFU1605 ball screw","aliases":["SFU1605","1605丝杆"],"dimensions_mm":{"diameter":16,"lead":5,"nut_flange":48},"generator":{"params":{"code":"SFU1605"}}},

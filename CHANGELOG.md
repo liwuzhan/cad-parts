@@ -2,6 +2,13 @@
 
 All notable catalog, interface and parameter-contract changes are recorded here.
 
+## Unreleased
+
+- Family declarations now persist their full `parameters` contract; `validate-catalog` and the manifest loader reject declarations whose parameters drift from the registered generator.
+- Added `cadparts validate-catalog --all-items` to instantiate and BRep-validate every catalog entry instead of one sample per family.
+- Inline planetary items now declare the complete input/output interface dimensions (`output_flange_diameter`, pilots, hole pitches, `output_shaft_diameter`/`_length`) used by `compatibility.match_fields`; the legacy `output_shaft` key was replaced by the canonical name.
+- CATALOG.md now states that timing-pulley and chain-sprocket geometry are tooth-less pitch envelopes where `teeth` only sets the pitch diameter.
+
 ## 0.2.0 — 2026-08-27
 
 - Expanded the catalog to 34 families and 288 concrete model/specification entries.

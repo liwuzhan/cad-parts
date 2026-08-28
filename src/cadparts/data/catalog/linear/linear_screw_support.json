@@ -26,6 +26,7 @@
   "keepouts": [{"id": "support_and_locknut_access", "purpose": "Support unit and shaft locknut access."}],
   "purchase": {"designation_template": "{unit_type}{size} ball-screw support unit", "note": "Match the actual machined shaft end and bearing arrangement."},
   "sample": {"params": {"unit_type": "BK", "size": "20"}},
+  "parameters": [{"name": "unit_type", "type": "string", "description": "Support family", "required": true, "choices": ["BK", "BF", "EK", "EF", "FK", "FF"]}, {"name": "size", "type": "string", "description": "Nominal shaft-end size", "required": true, "choices": ["10", "12", "15", "17", "20", "25", "30", "35", "40"]}],
   "items": [
     {"id":"linear.screw_support.bk10","name":"BK10 fixed support","aliases":["BK10"],"dimensions_mm":{"bore":10},"generator":{"params":{"unit_type":"BK","size":"10"}}},
     {"id":"linear.screw_support.bf10","name":"BF10 floating support","aliases":["BF10"],"dimensions_mm":{"bore":10},"generator":{"params":{"unit_type":"BF","size":"10"}}},

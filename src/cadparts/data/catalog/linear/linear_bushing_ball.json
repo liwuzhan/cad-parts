@@ -25,6 +25,7 @@
   "keepouts": [{"id": "moving_bushing", "purpose": "Bushing outer envelope while translating on the shaft."}],
   "purchase": {"designation_template": "{style}{bore} linear ball bushing", "note": "Select seal, length suffix, accuracy and fit after layout."},
   "sample": {"params": {"style": "LMF", "bore": "20"}},
+  "parameters": [{"name": "style", "type": "string", "description": "Bushing style", "required": true, "choices": ["LM", "LME", "LMF", "LMK"]}, {"name": "bore", "type": "string", "description": "Nominal shaft diameter", "required": true, "choices": ["8", "10", "12", "16", "20", "25", "30", "40"]}],
   "items": [
     {"id":"linear.bushing.ball.lm12","name":"LM12 linear bushing","aliases":["LM12"],"dimensions_mm":{"bore":12,"outside":21,"length":30},"generator":{"params":{"style":"LM","bore":"12"}}},
     {"id":"linear.bushing.ball.lm16","name":"LM16 linear bushing","aliases":["LM16"],"dimensions_mm":{"bore":16,"outside":28,"length":37},"generator":{"params":{"style":"LM","bore":"16"}}},

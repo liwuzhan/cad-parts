@@ -27,6 +27,7 @@
     "note": "Closure and clearance normally change the order designation, not the assembly envelope."
   },
   "sample": {"params": {"code": "6204"}},
+  "parameters": [{"name": "code", "type": "string", "description": "Bearing designation", "required": true, "choices": ["6200", "6201", "6202", "6203", "6204", "6205", "6206", "6207", "6208", "6209", "6210", "6300", "6301", "6302", "6303", "6304", "6305", "6306", "6307", "6308", "6309", "6310"]}, {"name": "detail", "type": "string", "description": "simplified envelope or recognizable heuristic rings and balls", "required": false, "default": "simplified", "choices": ["simplified", "rings"]}],
   "items": [
     {"id": "bearing.deep_groove.6200", "name": "6200 deep-groove bearing", "dimensions_mm": {"bore": 10, "outside_diameter": 30, "width": 9}, "generator": {"params": {"code": "6200"}}},
     {"id": "bearing.deep_groove.6201", "name": "6201 deep-groove bearing", "dimensions_mm": {"bore": 12, "outside_diameter": 32, "width": 10}, "generator": {"params": {"code": "6201"}}},

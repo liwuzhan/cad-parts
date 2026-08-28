@@ -18,5 +18,6 @@
     {"id": "bearing_face_max", "type": "planar_face", "role": "clamp location"}
   ],
   "purchase": {"designation_template": "{size} regular hex nut"},
+  "parameters": [{"name": "size", "type": "string|number", "description": "Metric nominal thread designation", "required": true, "choices": ["M3", "M4", "M5", "M6", "M8", "M10", "M12", "M14", "M16", "M18", "M20", "M22", "M24"]}],
   "sample": {"params": {"size": "M8"}}
 }

@@ -9,6 +9,7 @@
   "keepouts":[{"id":"intake_clearance","purpose":"Unobstructed intake planning volume."},{"id":"exhaust_clearance","purpose":"Unobstructed exhaust planning volume."}],
   "purchase":{"designation_template":"{size} mm square axial fan","note":"Select thickness, voltage, connector, bearing, airflow, static pressure, noise and IP rating separately."},
   "sample":{"params":{"size":"120"}},
+  "parameters": [{"name":"size","type":"string","description":"Nominal square frame","required":true,"choices":["40","60","80","92","120","140"]}],
   "items":[
     {"id":"fan.axial.square.40","name":"40 mm square axial fan","dimensions_mm":{"side":40,"thickness":10,"hole_pitch":32},"generator":{"params":{"size":"40"}}},
     {"id":"fan.axial.square.60","name":"60 mm square axial fan","dimensions_mm":{"side":60,"thickness":15,"hole_pitch":50},"generator":{"params":{"size":"60"}}},

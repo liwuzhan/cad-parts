@@ -26,6 +26,7 @@
   "keepouts": [{"id": "housing_and_grease_access", "purpose": "Housing, insert projection and grease-access clearance."}],
   "purchase": {"designation_template": "{unit_type}{code} mounted bearing unit", "note": "Seal, locking method, housing material and grease arrangement are separate selections."},
   "sample": {"params": {"unit_type": "UCP", "code": "206"}},
+  "parameters": [{"name": "unit_type", "type": "string", "description": "Housing form", "required": true, "choices": ["UCP", "UCF", "UCFL"]}, {"name": "code", "type": "string", "description": "Insert code 201–218", "required": true, "choices": ["201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "216", "217", "218"]}],
   "items": [
     {"id":"bearing.unit.mounted.ucp201","name":"UCP201 mounted bearing","aliases":["UCP201"],"dimensions_mm":{"bore":12},"generator":{"params":{"unit_type":"UCP","code":"201"}}},
     {"id":"bearing.unit.mounted.ucp202","name":"UCP202 mounted bearing","aliases":["UCP202"],"dimensions_mm":{"bore":15},"generator":{"params":{"unit_type":"UCP","code":"202"}}},

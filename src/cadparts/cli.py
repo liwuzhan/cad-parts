@@ -101,6 +101,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     validate_command = subcommands.add_parser("validate-catalog", help="validate declarations and generated index")
     validate_command.add_argument("--build-samples", action="store_true")
+    validate_command.add_argument(
+        "--all-items",
+        action="store_true",
+        help="instantiate and BRep-validate every catalog item, not just one sample per family",
+    )
 
     index_command = subcommands.add_parser("build-index", help="regenerate the deterministic catalog index")
     index_command.add_argument("--output", type=Path)
@@ -129,7 +134,7 @@ def main(argv: list[str] | None = None) -> int:
             print(_json(describe_part(args.identifier)))
             return 0
         if args.command == "validate-catalog":
-            print(_json(validate_catalog(build_samples=args.build_samples)))
+            print(_json(validate_catalog(build_samples=args.build_samples, all_items=args.all_items)))
             return 0
         if args.command == "build-index":
             print(_json({"output": str(write_catalog_index(args.output).resolve())}))

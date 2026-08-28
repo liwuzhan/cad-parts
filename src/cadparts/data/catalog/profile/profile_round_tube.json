@@ -18,5 +18,6 @@
     {"id": "end_max", "type": "profile_end", "role": "cut/join plane"}
   ],
   "purchase": {"designation_template": "round tube OD{outer_diameter} wall {wall}, cut length {length}"},
+  "parameters": [{"name": "outer_diameter", "type": "number", "description": "Outside diameter", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "wall", "type": "number", "description": "Nominal wall thickness", "required": true, "unit": "mm", "minimum": 0.0}, {"name": "length", "type": "number", "description": "Length along +Z", "required": true, "unit": "mm", "minimum": 0.0}],
   "sample": {"params": {"outer_diameter": 48.3, "wall": 3.2, "length": 100}}
 }

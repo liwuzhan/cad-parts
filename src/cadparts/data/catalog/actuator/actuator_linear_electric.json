@@ -9,6 +9,7 @@
   "keepouts":[{"id":"actuator_body_and_motor","purpose":"Actuator body, drive and motor allowance."},{"id":"moving_output_sweep","purpose":"Rod-end or slider-carriage sweep."}],
   "purchase":{"designation_template":"{kind} electric actuator frame {frame} stroke {stroke}","note":"Pin vendor series, speed, load, duty, motor and switches after layout."},
   "sample":{"params":{"kind":"rod","frame":"60","stroke":300}},
+  "parameters": [{"name":"kind","type":"string","description":"Output type","required":true,"choices":["rod","slider"]},{"name":"frame","type":"string","description":"Planning frame","required":true,"choices":["40","60","80","100"]},{"name":"stroke","type":"number","description":"Commanded stroke","required":true,"unit":"mm","minimum":0},{"name":"position","type":"number","description":"Current output position","required":false,"unit":"mm","default":0}],
   "items":[
     {"id":"actuator.linear.electric.rod40","name":"40-class rod actuator profile","generator":{"params":{"kind":"rod","frame":"40","stroke":200}}},
     {"id":"actuator.linear.electric.rod60","name":"60-class rod actuator profile","generator":{"params":{"kind":"rod","frame":"60","stroke":300}}},

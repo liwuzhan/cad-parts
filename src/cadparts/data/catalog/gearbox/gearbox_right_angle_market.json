@@ -31,6 +31,7 @@
   ],
   "purchase": {"designation_template": "{series} {size} right-angle reducer output bore {output_bore}", "note": "Ratio, input motor adapter, output configuration and mounting position remain catalog selections."},
   "sample": {"params": {"series": "NMRV", "size": "063"}},
+  "parameters": [{"name": "series", "type": "string", "description": "Market series", "required": true, "choices": ["NMRV", "BKM"]}, {"name": "size", "type": "string", "description": "Series size code", "required": true}, {"name": "output_bore", "type": "number|null", "description": "Hollow-output bore override", "required": false, "unit": "mm", "default": null}],
   "items": [
     {"id": "gearbox.right_angle.market.nmrv025", "name": "NMRV 025 planning profile", "aliases": ["NMRV025", "RV25"], "dimensions_mm": {"envelope": [90, 70, 72], "axis_height": 25, "output_bore": 11}, "generator": {"params": {"series": "NMRV", "size": "025"}}},
     {"id": "gearbox.right_angle.market.nmrv030", "name": "NMRV 030 planning profile", "aliases": ["NMRV030", "RV30"], "dimensions_mm": {"envelope": [103, 80, 82], "axis_height": 30, "output_bore": 14}, "generator": {"params": {"series": "NMRV", "size": "030"}}},

@@ -9,6 +9,7 @@
   "keepouts":[{"id":"cylinder_body","purpose":"Cylinder body and end-cap envelope."},{"id":"rod_sweep","purpose":"Piston rod through full commanded stroke."}],
   "purchase":{"designation_template":"{series} compact cylinder bore {bore} stroke {stroke}","note":"Pin manufacturer mounting details before machining the plate."},
   "sample":{"params":{"series":"SDA","bore":"40","stroke":50}},
+  "parameters": [{"name":"series","type":"string","description":"Interface family","required":true,"choices":["ISO21287","SDA"]},{"name":"bore","type":"string","description":"Nominal bore","required":true,"choices":["20","25","32","40","50","63","80","100"]},{"name":"stroke","type":"number","description":"Cylinder stroke","required":true,"unit":"mm","minimum":0},{"name":"rod_extension","type":"number|null","description":"Retracted rod extension","required":false,"unit":"mm","default":null}],
   "items":[
     {"id":"pneumatic.cylinder.compact.iso20","name":"ISO 21287 bore 20 compact cylinder","generator":{"params":{"series":"ISO21287","bore":"20","stroke":25}}},
     {"id":"pneumatic.cylinder.compact.iso25","name":"ISO 21287 bore 25 compact cylinder","generator":{"params":{"series":"ISO21287","bore":"25","stroke":25}}},

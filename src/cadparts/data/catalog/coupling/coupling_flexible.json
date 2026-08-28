@@ -27,6 +27,7 @@
   "keepouts": [{"id": "rotating_coupling", "purpose": "Rotating outside envelope plus radial planning clearance."}],
   "purchase": {"designation_template": "{kind} flexible coupling size {size} bores {bore_a}x{bore_b}", "note": "Select torque, speed, misalignment, material and fastening method from the chosen catalog."},
   "sample": {"params": {"kind": "jaw", "size": "19", "bore_a": 8, "bore_b": 14}},
+  "parameters": [{"name": "kind", "type": "string", "description": "Coupling construction", "required": true, "choices": ["jaw", "disc", "clamp"]}, {"name": "size", "type": "string", "description": "Finite planning size", "required": true}, {"name": "bore_a", "type": "number|null", "description": "First shaft bore", "required": false, "unit": "mm", "default": null}, {"name": "bore_b", "type": "number|null", "description": "Second shaft bore", "required": false, "unit": "mm", "default": null}],
   "items": [
     {"id":"coupling.flexible.jaw14","name":"Jaw coupling size 14","dimensions_mm":{"outside_diameter":30,"length":35,"maximum_bore":14},"generator":{"params":{"kind":"jaw","size":"14"}}},
     {"id":"coupling.flexible.jaw19","name":"Jaw coupling size 19","aliases":["梅花19"],"dimensions_mm":{"outside_diameter":40,"length":50,"maximum_bore":19},"generator":{"params":{"kind":"jaw","size":"19"}}},

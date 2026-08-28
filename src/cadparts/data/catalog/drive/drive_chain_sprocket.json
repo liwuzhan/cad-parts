@@ -19,6 +19,7 @@
   "keepouts": [{"id":"rotating_sprocket_and_chain","purpose":"Sprocket and nearby moving chain clearance."}],
   "purchase": {"designation_template":"{series} chain sprocket {teeth}T bore {bore}","note":"Pin simplex/duplex, hub form, keyway and material after layout."},
   "sample": {"params":{"series":"08B","teeth":20,"bore":20}},
+  "parameters": [{"name": "series", "type": "string", "description": "ISO/BS chain series", "required": true, "choices": ["06B", "08B", "10B", "12B"]}, {"name": "teeth", "type": "integer", "description": "Tooth count", "required": true, "minimum": 9}, {"name": "bore", "type": "number", "description": "Shaft bore", "required": true, "unit": "mm", "minimum": 0}, {"name": "width", "type": "number|null", "description": "Face width override", "required": false, "unit": "mm", "default": null}],
   "items": [
     {"id":"drive.chain_sprocket.06b-15","name":"06B 15T sprocket profile","aliases":["06B-15T"],"generator":{"params":{"series":"06B","teeth":15,"bore":12}}},
     {"id":"drive.chain_sprocket.06b-20","name":"06B 20T sprocket profile","aliases":["06B-20T"],"generator":{"params":{"series":"06B","teeth":20,"bore":15}}},

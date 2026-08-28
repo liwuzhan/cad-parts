@@ -9,6 +9,7 @@
   "keepouts":[{"id":"wheel_or_swivel_sweep","purpose":"Wheel envelope or full swivel sweep below mounting interface."}],
   "purchase":{"designation_template":"{size} mm caster {mount} swivel {swivel} brake {brake}","note":"Pin overall height, swivel offset, load, wheel material, bearings and brake after layout."},
   "sample":{"params":{"size":"100","mount":"plate","swivel":true}},
+  "parameters": [{"name":"size","type":"string","description":"Wheel diameter class","required":true,"choices":["50","75","100","125","150","200"]},{"name":"mount","type":"string","description":"Machine attachment","required":false,"default":"plate","choices":["plate","stem"]},{"name":"swivel","type":"boolean","description":"Swivel fork","required":false,"default":true},{"name":"brake","type":"boolean","description":"Brake selection evidence","required":false,"default":false}],
   "items":[
     {"id":"hardware.caster.50-plate","name":"50 mm plate swivel caster","generator":{"params":{"size":"50","mount":"plate","swivel":true}}},
     {"id":"hardware.caster.75-plate","name":"75 mm plate swivel caster","generator":{"params":{"size":"75","mount":"plate","swivel":true}}},

@@ -26,6 +26,7 @@
   "keepouts": [{"id": "motor_and_terminal_box", "purpose": "Conservative motor, fan-cover and terminal-box envelope."}],
   "purchase": {"designation_template": "IEC frame {frame} mounting {mount} induction motor", "note": "Power, poles, voltage, efficiency, enclosure and brake are separate selection fields."},
   "sample": {"params": {"frame": "80", "mount": "B5"}},
+  "parameters": [{"name": "frame", "type": "string", "description": "IEC frame designation", "required": true, "choices": ["63", "71", "80", "90S", "90L", "100L", "112M", "132S", "132M"]}, {"name": "mount", "type": "string", "description": "Mounting arrangement", "required": false, "default": "B3", "choices": ["B3", "B5", "B14", "B35"]}],
   "items": [
     {"id": "motor.induction.iec.63-b3", "name": "IEC 63 B3 motor interface", "dimensions_mm": {"shaft_height": 63, "shaft": 11, "shaft_length": 23, "foot_pitch": [100, 80]}, "generator": {"params": {"frame": "63", "mount": "B3"}}},
     {"id": "motor.induction.iec.71-b3", "name": "IEC 71 B3 motor interface", "dimensions_mm": {"shaft_height": 71, "shaft": 14, "shaft_length": 30, "foot_pitch": [112, 90]}, "generator": {"params": {"frame": "71", "mount": "B3"}}},

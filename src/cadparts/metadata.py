@@ -52,6 +52,21 @@ def _validate_manifest(data: Mapping[str, Any], *, source: str) -> None:
         raise CatalogDataError(f"{source}: geometry.fidelity is required")
     if not isinstance(data["sample"], Mapping) or "params" not in data["sample"]:
         raise CatalogDataError(f"{source}: sample.params is required")
+    parameters = data.get("parameters")
+    if not isinstance(parameters, list) or not parameters:
+        raise CatalogDataError(f"{source}: parameters must be a non-empty list")
+    names: set[str] = set()
+    for parameter in parameters:
+        if not isinstance(parameter, Mapping) or not {"name", "type", "description", "required"} <= set(parameter):
+            raise CatalogDataError(f"{source}: every parameter needs name, type, description and required")
+        name = str(parameter["name"])
+        if name in names:
+            raise CatalogDataError(f"{source}: duplicate parameter name {name!r}")
+        names.add(name)
+        if not isinstance(parameter["required"], bool):
+            raise CatalogDataError(f"{source}: parameter {name!r} required must be a boolean")
+        if not parameter["required"] and "default" not in parameter:
+            raise CatalogDataError(f"{source}: optional parameter {name!r} needs a default")
     for interface in data.get("interfaces", []):
         if not isinstance(interface, Mapping) or not {"id", "type", "role"} <= set(interface):
             raise CatalogDataError(f"{source}: every interface needs id, type and role")

@@ -8,7 +8,7 @@ from typing import Any, Iterable
 
 from build123d import export_step
 
-from .catalog import instantiate, list_families
+from .catalog import describe, instantiate, list_families
 from .errors import CatalogDataError, ReviewError
 from .metadata import build_catalog_index, load_catalog_index, load_manifests
 
@@ -21,8 +21,13 @@ STANDARD_VIEWS = {
 }
 
 
-def validate_catalog(*, check_index: bool = True, build_samples: bool = False) -> dict[str, Any]:
-    """Validate declarations, generator coverage and optionally sample geometry."""
+def validate_catalog(
+    *,
+    check_index: bool = True,
+    build_samples: bool = False,
+    all_items: bool = False,
+) -> dict[str, Any]:
+    """Validate declarations, generator coverage and optionally generated geometry."""
 
     manifests = load_manifests()
     registered = {item["family"] for item in list_families()}
@@ -33,6 +38,17 @@ def validate_catalog(*, check_index: bool = True, build_samples: bool = False) -
         raise CatalogDataError(
             "catalog/generator mismatch; "
             f"missing declarations={missing_declarations}, missing generators={missing_generators}"
+        )
+
+    parameter_drift = [
+        str(manifest["id"])
+        for manifest in manifests
+        if describe(str(manifest["id"]))["parameters"] != manifest["parameters"]
+    ]
+    if parameter_drift:
+        raise CatalogDataError(
+            "declared parameters drift from the generator contract; "
+            f"run `cadparts describe <family>` and sync the declaration: {parameter_drift}"
         )
 
     generated = build_catalog_index(manifests)
@@ -51,6 +67,27 @@ def validate_catalog(*, check_index: bool = True, build_samples: bool = False) -
                 "interface_count": len(instance.interfaces),
                 "envelope": instance.spec["envelope"],
             })
+
+    items: list[dict[str, Any]] = []
+    if all_items:
+        for entry in generated["entries"]:
+            if entry.get("kind") != "item":
+                continue
+            item_id = str(entry["id"])
+            instance = instantiate(item_id)
+            shape = instance.spec["shape"]
+            items.append({
+                "id": item_id,
+                "valid": bool(shape["valid"]),
+                "solid_count": shape["solid_count"],
+                "envelope": instance.spec["envelope"],
+            })
+        invalid = [item["id"] for item in items if not item["valid"]]
+        if invalid:
+            listed = ", ".join(invalid[:10])
+            raise CatalogDataError(
+                f"{len(invalid)} catalog items generate invalid geometry: {listed}"
+            )
     return {
         "schema": "cadparts.catalog-validation/v1",
         "family_count": len(manifests),
@@ -58,6 +95,7 @@ def validate_catalog(*, check_index: bool = True, build_samples: bool = False) -
         "categories": generated["categories"],
         "index_current": True,
         "samples": samples,
+        **({"items_checked": len(items)} if all_items else {}),
     }
 
 
