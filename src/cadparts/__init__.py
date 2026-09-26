@@ -55,6 +55,7 @@ from .keys import parallel_key, parallel_key_dimensions
 from .mates import (
     MATE_SCHEMA,
     VERDICT_FAIL,
+    VERDICT_NONE,
     VERDICT_PASS,
     VERDICT_UNKNOWN,
     VERDICT_WARN,
@@ -123,6 +124,7 @@ __all__ = [
     "StandardReference",
     "Station",
     "VERDICT_FAIL",
+    "VERDICT_NONE",
     "VERDICT_PASS",
     "VERDICT_UNKNOWN",
     "VERDICT_WARN",

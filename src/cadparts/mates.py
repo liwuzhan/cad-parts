@@ -26,6 +26,11 @@ VERDICT_PASS = "PASS"
 VERDICT_WARN = "WARN"
 VERDICT_FAIL = "FAIL"
 VERDICT_UNKNOWN = "UNKNOWN"
+# Nothing was compared at all. Deliberately distinct from PASS: reporting PASS
+# over an empty graph is the most misleading thing a checker can emit, because a
+# reader sees the word and stops looking. A package with declared ports but no
+# mates is exactly this case.
+VERDICT_NONE = "NOTHING_TO_CHECK"
 
 MATE_SCHEMA = "cadparts.mate-check/v1"
 
@@ -307,11 +312,15 @@ def evaluate_mates(
         VERDICT_FAIL: sum(1 for item in verdicts if item["verdict"] == VERDICT_FAIL),
         VERDICT_UNKNOWN: sum(1 for item in verdicts if item["verdict"] == VERDICT_UNKNOWN),
     }
-    # Worst wins; an empty graph is vacuously a pass.
-    overall = next(
-        (level for level in reversed(_SEVERITY) if summary[level]),
-        VERDICT_PASS,
-    )
+    # Worst wins. With nothing to compare there is no verdict to give, and
+    # saying PASS would let an unchecked package read as a verified one.
+    if not verdicts:
+        overall = VERDICT_NONE
+    else:
+        overall = next(
+            (level for level in reversed(_SEVERITY) if summary[level]),
+            VERDICT_PASS,
+        )
 
     return {
         "schema": MATE_SCHEMA,
@@ -339,6 +348,7 @@ def evaluate_mates(
 __all__ = [
     "MATE_SCHEMA",
     "VERDICT_FAIL",
+    "VERDICT_NONE",
     "VERDICT_PASS",
     "VERDICT_UNKNOWN",
     "VERDICT_WARN",

@@ -15,6 +15,7 @@ import pytest
 from cadparts import (
     MATE_SCHEMA,
     VERDICT_FAIL,
+    VERDICT_NONE,
     VERDICT_PASS,
     VERDICT_UNKNOWN,
     VERDICT_WARN,
@@ -213,10 +214,47 @@ def test_declaration_errors_fail_with_an_actionable_reason(ref_a, ref_b, expecte
 
 
 def test_boundary_states_what_was_not_checked():
-    result = evaluate_mates({}, [])
+    result = evaluate_mates(
+        {"p": [port("b", "cylindrical_bore", diameter=10.0),
+               port("s", "cylindrical_surface", diameter=10.0)]},
+        [{"a": "p.b", "b": "p.s"}],
+    )
     assert result["overall"] == VERDICT_PASS
     assert "not_checked" in result["boundary"]
     assert any("公差" in item for item in result["boundary"]["not_checked"])
+
+
+# --------------------------------------------------------------------------
+# A vacuous pass is not a pass
+# --------------------------------------------------------------------------
+
+def test_nothing_compared_reports_nothing_to_check_not_pass():
+    """An empty graph must not read as verified.
+
+    Observed in practice: a package with six declared ports and no mates used to
+    report ``overall: PASS``, which is the most misleading thing a checker can
+    say — a reader sees the word and stops looking.
+    """
+
+    assert evaluate_mates({}, [])["overall"] == VERDICT_NONE
+
+
+def test_declared_ports_without_any_mate_also_report_nothing_to_check():
+    result = evaluate_mates(
+        {"p": [port("b", "cylindrical_bore", diameter=10.0)]}, []
+    )
+    assert result["overall"] == VERDICT_NONE
+    assert result["coverage"]["declared_ports"] == 1
+    assert result["coverage"]["unmated_ports"] == ["p.b"]
+
+
+def test_a_single_real_comparison_still_reports_pass():
+    result = evaluate_mates(
+        {"p": [port("b", "cylindrical_bore", diameter=10.0),
+               port("s", "cylindrical_surface", diameter=10.0)]},
+        [{"a": "p.b", "b": "p.s"}],
+    )
+    assert result["overall"] == VERDICT_PASS
 
 
 def test_why_field_is_carried_through():
