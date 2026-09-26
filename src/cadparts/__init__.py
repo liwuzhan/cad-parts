@@ -52,6 +52,16 @@ from .gearboxes import (
     right_angle_gearbox,
 )
 from .keys import parallel_key, parallel_key_dimensions
+from .mates import (
+    MATE_SCHEMA,
+    VERDICT_FAIL,
+    VERDICT_PASS,
+    VERDICT_UNKNOWN,
+    VERDICT_WARN,
+    evaluate_mates,
+    evaluate_pair,
+    rule_for,
+)
 from .shafts import (
     Free,
     Seat,
@@ -105,15 +115,22 @@ from .shop_hardware import caster, caster_dimensions, leveling_foot, leveling_fo
 __all__ = [
     "FamilyDefinition",
     "Free",
+    "MATE_SCHEMA",
     "ParameterSpec",
     "PartInstance",
     "Seat",
     "ShaftSpec",
     "StandardReference",
     "Station",
+    "VERDICT_FAIL",
+    "VERDICT_PASS",
+    "VERDICT_UNKNOWN",
+    "VERDICT_WARN",
     "axial_fan",
     "axial_fan_dimensions",
     "compare",
+    "evaluate_mates",
+    "evaluate_pair",
     "compact_cylinder",
     "compact_cylinder_dimensions",
     "chain_sprocket",
@@ -170,6 +187,7 @@ __all__ = [
     "round_tube_dimensions",
     "right_angle_dimensions",
     "right_angle_gearbox",
+    "rule_for",
     "search",
     "screw_support",
     "screw_support_dimensions",
