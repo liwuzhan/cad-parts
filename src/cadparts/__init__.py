@@ -52,6 +52,15 @@ from .gearboxes import (
     right_angle_gearbox,
 )
 from .keys import parallel_key, parallel_key_dimensions
+from .shafts import (
+    Free,
+    Seat,
+    ShaftSpec,
+    Station,
+    shaft_dimensions,
+    shaft_reference_checks,
+    stepped_shaft,
+)
 from .linear_motion import (
     ball_screw,
     ball_screw_dimensions,
@@ -95,9 +104,13 @@ from .shop_hardware import caster, caster_dimensions, leveling_foot, leveling_fo
 
 __all__ = [
     "FamilyDefinition",
+    "Free",
     "ParameterSpec",
     "PartInstance",
+    "Seat",
+    "ShaftSpec",
     "StandardReference",
+    "Station",
     "axial_fan",
     "axial_fan_dimensions",
     "compare",
@@ -162,10 +175,13 @@ __all__ = [
     "screw_support_dimensions",
     "servo_square",
     "servo_square_dimensions",
+    "shaft_dimensions",
+    "shaft_reference_checks",
     "square_tube",
     "square_tube_dimensions",
     "stepper_square",
     "stepper_square_dimensions",
+    "stepped_shaft",
     "spur_gear",
     "spur_gear_dimensions",
     "straight_bevel_gear",

@@ -346,4 +346,44 @@ def resolve_interfaces(
             interfaces.append(_interface("swivel_axis", "rotation_axis", "caster steering", (0, 0, float(derived["overall_height"])), z_axis))
         return interfaces
 
+    if family == "shaft.stepped":
+        # A shaft's seats exist only because something mounts on them; the
+        # station list arrives through derived, which resolved those relationships.
+        stations = list(derived.get("stations", ()))
+        if not stations:
+            return []
+        interfaces: list[dict[str, Any]] = []
+        for station in stations:
+            role = str(station["role"])
+            if station["kind"] == "seat":
+                interfaces.append(_interface(
+                    f"seat_{role}", "cylindrical_surface", f"seat for {role}",
+                    (0, 0, float(station["z_start"])), z_axis,
+                    diameter=float(station["diameter"]),
+                    length=float(station["length"]),
+                    nominal_diameter=float(station["nominal_diameter"]),
+                ))
+            else:
+                interfaces.append(_interface(
+                    f"journal_{role}", "cylindrical_surface", f"journal {role}",
+                    (0, 0, float(station["z_start"])), z_axis,
+                    diameter=float(station["diameter"]),
+                    length=float(station["length"]),
+                ))
+        for shoulder in derived.get("shoulders", ()):
+            interfaces.append(_interface(
+                str(shoulder["role"]), "planar_face", "axial locating shoulder",
+                (0, 0, float(shoulder["at_z"])),
+                z_axis if shoulder["faces"] == "+Z" else minus_z,
+                outer_diameter=float(shoulder["outer_diameter"]),
+                inner_diameter=float(shoulder["inner_diameter"]),
+            ))
+        total = float(derived.get("total_length", 0.0))
+        interfaces.append(_interface("end_min", "shaft_end", "shaft end datum",
+                                     (0, 0, 0), minus_z, diameter=float(stations[0]["diameter"])))
+        interfaces.append(_interface("end_max", "shaft_end", "shaft end datum",
+                                     (0, 0, total), z_axis, diameter=float(stations[-1]["diameter"])))
+        interfaces.append(_interface("rotation_axis", "axis", "shaft rotation axis", (0, 0, 0), z_axis))
+        return interfaces
+
     return []
